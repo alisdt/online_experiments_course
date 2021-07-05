@@ -1,0 +1,19 @@
+{% extends "!layout.html" %}
+{% block htmltitle %}
+<title>{{ title }}</title>
+{% endblock %}
+{% block header %}
+<div style="width 100%; border: 3px solid #3e4349; background-color: #ff9b90; margin: 10px; padding: 10px">
+Please note that the teaching server used in this course is not suitable for
+running your experiments for participants.<br>See the guidance
+<a href="https://softdev.ppls.ed.ac.uk/online_experiments/about.html#servers">
+on University servers</a>
+for more details.
+</div>
+{% endblock %}
+{% block footer %}
+{{ super() }}
+<div class="footer" role="contentinfo">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Online Experiments</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Alisdair Tullo</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://softdev.ppls.ed.ac.uk/online_experiments" rel="dct:source">https://softdev.ppls.ed.ac.uk/online_experiments</a>.
+</div>
+{% endblock %}
