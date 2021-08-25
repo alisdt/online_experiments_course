@@ -1,3 +1,5 @@
+.. include:: site_specific/server_name.rst
+
 An introduction to jsPsych
 ==========================
 
@@ -55,7 +57,7 @@ Here are some extra notes; keep these handy while you follow the tutorial.
 
 **Step 1**
     For convenience,
-    `here's the download link for jsPsych <https://github.com/jspsych/jsPsych/releases/download/v6.1.0/jspsych-6.1.0.zip>`_.
+    `here's the download link for jsPsych <|jspsych_download|>`_.
 
 **Step 2**
     To create your file, in your text editor use "Save As ....".
@@ -95,8 +97,8 @@ To upload the experiment you'll need some file transfer software. You're welcome
 use whatever you feel most comfortable with. For Windows or Mac, I recommend
 the free and open source program CyberDuck:
 
-| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-7.2.5.32097.exe>`_
-| `Mac link <https://update.cyberduck.io/Cyberduck-7.2.5.32097.zip>`_
+| `Windows link <|cyberduck_win_download|>`_
+| `Mac link <|cyberduck_mac_download|>`_
 
 For Linux, it will depend on your distribution. In most Linux distributions you can
 connect directly in the file browser, or use the ``scp`` command.
@@ -116,9 +118,8 @@ This window will appear:
 
 Select "SFTP" from the dropdown menu at the top.
 Fill in your UUN and the password you were given for your account.
-Under "Server" give the value:
 
-``jspsychlearning.ppls.ed.ac.uk``
+.. include:: site_specific/log_in_to_server.rst
 
 Click on Connect.
 
@@ -161,11 +162,7 @@ This will copy the files over to the server. Now you're ready to test your exper
 Test
 ....
 
-In your web browser, go to:
-
-http://jspsychlearning.ppls.ed.ac.uk/~UUN/hello/experiment.html
-
-but replace "UUN" with your username.
+.. include:: site_specific/test_experiment.rst
 
 You should see the text "Hello world" (or whatever message you wrote) in the middle of the screen.
 
@@ -224,7 +221,7 @@ To illustrate the difference between different kinds of nodes, let's change
 our "Hello world" example to display an image. Take a look at the documentation
 for ``jspsych-image-keyboard-response`` plugin. You can pick your own image to
 display, or if you need one,
-`use this <http://softdev.ppls.ed.ac.uk/static/images/nasa_proxima.png>`_.
+`use this <|example_image|>`_.
 
 Now try to change your jsPsych program to show the image.
 
@@ -257,7 +254,7 @@ experiments in a web browser. Behavior Research Methods, 47(1), 1-12.
 doi:10.3758/s13428-014-0458-y
 <https://link.springer.com/article/10.3758/s13428-014-0458-y>`_
 
-The test image provided is of Proxima Centauri and was collected by `NASA <https://www.nasa.gov/>`_ .
+|example_image_credit|
 
 .. rubric:: Footnotes
 

@@ -33,7 +33,18 @@ Here are a couple of examples.
 Atom can be quite difficult to find on
 Windows as it's in a hidden folder. Go to the folder
 
-    C:\\Users\\<your username>\\AppData\\Local\\atom
+    C:\\Users\\<your username>\\
+
+Then after the file location type "AppData", so it reads:
+
+C:\\Users\\<your username>\\AppData
+
+The folder is there, but you won't be able to see or click on it unless you've
+already told Windows to show you hidden files.
+
+Now go into the "Local" folder and inside that "atom":
+
+C:\\Users\\<your username>\\AppData\\Local\\atom
 
 and choose the file called "atom":
 
@@ -45,7 +56,8 @@ Notepad++ can be found in Program Files:
 .. image:: images/choose_editor_3.png
   :width: 90%
 
-Now you can edit a file directly by selecting it and clicking on the "Edit" button in the toolbar.
+Once this is set up (with whichever editor you use) you can edit a file
+directly by selecting it and clicking on the "Edit" button in the toolbar.
 
 .. image:: images/edit.png
   :width: 90%

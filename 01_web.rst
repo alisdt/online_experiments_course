@@ -1,11 +1,11 @@
-..include:: site_specific/server_name.rst
+.. include:: site_specific/server_name.rst
 
 About the Web
 =============
 
 The internet is a big network of computers, all connected. Here's a picture:
 
-.. image:: images/the_internet.jpg
+.. image:: the_internet.jpg
     :width: 90%
 
 In reality there are many more, of course! Let's think about what needs to happen
