@@ -438,7 +438,7 @@ and not just this:
 
 The answer is that putting the call inside a function delays its action.
 If the code was written the second way, it would run before ``jsPsych.init`` ran.
-Written the first way, in runs when ``on_finish`` is *used*, at the end of the
+Written the first way, it runs when ``on_finish`` is *used*, at the end of the
 experiment.
 
 If this seems confusing, don't worry -- just remember that the form above (using
@@ -484,6 +484,8 @@ If this seems confusing, don't worry -- just remember that the form above (using
         (x, y) => "The input was "+x+" and "+2*y;
 
     This new way isn't used as widely, as it's not supported on some older browsers and browser versions.
+
+    A function without a name is called an *anonymous function*.
 
 .. rubric:: Footnotes
 

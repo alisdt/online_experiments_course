@@ -42,9 +42,7 @@ Now right at the top of ``experiment.js``, add this code:
 In your web browser, load up the new copy of the experiment. In your browser, at the
 end of the URL, add a participant number as above. So it will look something like:
 
-.. code::
-
-    http://jspsychlearning.ppls.ed.ac.uk/~UUN/allocator/experiment.html?participant=123
+.. include:: site_specific/url_with_ppt_number.rst
 
 Complete the experiment. When you look at the data, you should see a new column
 called "participant", equal to the number that you entered.
@@ -60,23 +58,7 @@ We can also create our own small program on the server which forwards participan
 to the experiment, with an ID. Open a new file called ``participant_id_allocator.php``
 and copy this code into it:
 
-.. code:: php
-
-    <?php
-    $id_filename = '/home/UUN/server_data/participant_id.txt';
-    $destination = 'experiment.html?participant=';
-    $last_id = file_get_contents($id_filename);
-    if ($last_id === FALSE) {
-      $id = 0;
-    } else {
-      $id = (int)$last_id;
-    }
-    $id += 1;
-    file_put_contents($id_filename, $id);
-    header('Location: '.$destination.$id);
-    ?>
-
-As before, please replace ``UUN`` in the code with your own username.
+.. include:: site_specific/allocator.rst
 
 This code will:
 
@@ -94,9 +76,7 @@ to the experiment with the new ID.
 
 You should be able to go to
 
-.. code::
-
-    http://jspsychlearning.ppls.ed.ac.uk/~UUN/allocator/participant_id_allocator.php
+.. include:: site_specific/allocator_link.rst
 
 and be redirected to your experiment with a participant ID of 1 allocated. If you go
 back there again, the ID will be 2.

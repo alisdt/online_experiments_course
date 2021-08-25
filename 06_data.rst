@@ -68,8 +68,8 @@ This receives the data and saves it to disk.
     For security reasons, it would be bad for your experiment to be
     able to add files to the ``public_html`` area. Anything there could then be seen by the outside
     world, and could then be used to spread viruses or for other malicious purposes. [#ourserver]_
-    It may seem far-fetched, but institutions like universities are often targeted for this purpose
-    as people are more likely to trust a link on a university website.
+
+    .. include:: site_specific/uni_security.rst
 
 This small program is in a different programming language called PHP. I won't go into the details
 of this -- if you're interested, PHP has a lot in common with Javascript.
@@ -320,10 +320,11 @@ once at the beginning of the experiment. Check the console to make sure there ar
 errors.
 
 In your new node, add a new item ``on_finish``. This specifies a function to call
-when the trial is finished. Create an *anonymous function* (see
-:ref:`this section <functions>`), and inside it use ``jsPsych.data.addProperties``
-(see :ref:`this section <addproperties>`) to add a new column to the data which includes
-the ID. The function you pass to ``on_finish`` receives the data from the trial as an
+when the trial is finished. Create an *anonymous function* (this is a function
+without a name -- see :ref:`this section <functions>`), and inside it use
+``jsPsych.data.addProperties`` (see :ref:`this section <addproperties>`) to add
+a new column to the data which includes the ID. The function you pass to
+``on_finish`` receives the data from the trial as an
 argument -- take a look at the documentation
 `here <http://www.jspsych.org/overview/callbacks/#on_finish-trial>`_ .
 

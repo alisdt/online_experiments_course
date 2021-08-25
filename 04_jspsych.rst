@@ -108,7 +108,7 @@ They look something like this:
         {
             "rt": 1239,
             "stimulus": "Dog1.jpg",
-            "key_press": 32,
+            "key_press": " ",
             "trial_type": "image-keyboard-response",
             "trial_index": 0,
             "time_elapsed": 1241,
@@ -119,20 +119,21 @@ They look something like this:
 We'll go through this in more detail later on, but you can already see
 a couple of familiar features there. Firstly, the information in the node
 (the type and stimulus) are there. Secondly, the reaction time (``rt``) is
-there. Finally, ``key_press`` tells you what key was pressed.
+there. Finally, ``key_press`` tells you what key was pressed. In this case it's
+the space bar. Here the Space bar has been pressed, in the output:
+
+.. code::
+
+            "key_press": " ",
+
+there's a space between the second pair of quotes.
 
 Key codes
 .........
 
-This is not
-straightforward as JavaScript gives key codes rather than just showing the
-letter on the key. There are plenty of web pages that will tell you which
-code corresponds to which key, for example
-`this one <https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes>`_.
-
-You can also ask jsPsych to give you the
-`code corresponding to a character <http://www.jspsych.org/core_library/jspsych-pluginAPI/#jspsychpluginapiconvertkeycharactertokeycode>`_,
-or the `character corresponding to a code <http://www.jspsych.org/core_library/jspsych-pluginAPI/#jspsychpluginapiconvertkeycodetokeycharacter>`_.
+Keys are reported by jsPsych according to the character on the key that's pressed,
+e.g. 'a', 'b', 'c'. Other keys (Alt, Shift etc.) will be given as a standard
+descriptive code -- see `this list <https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values>`_
 
 It's always wise to test with the layout of keyboard and input language that
 your participants will use, so bear this in mind.
