@@ -32,8 +32,13 @@ Factorial code example with fixation
         timeline_variables: factorial_values
     };
 
+    var instructions = {
+        type: 'html-keyboard-response',
+        stimulus: 'Welcome to the experiment!<br>When you see an image press any key you like.'
+    }
+
     jsPsych.init({
-        timeline: [trials_with_variables],
+        timeline: [instructions, trials_with_variables],
         on_finish: function() {
             jsPsych.data.displayData();
         }

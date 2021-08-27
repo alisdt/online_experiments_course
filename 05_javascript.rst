@@ -1,6 +1,8 @@
 An introduction to JavaScript
 =============================
 
+.. |05sols| :ref:`All solutions for this section <solutions05>`
+
 As mentioned briefly in the first session, JavaScript is a programming language that can be used
 to tell the web browser to react to user input, and change the contents of a web page dynamically
 after it has loaded.
@@ -222,6 +224,8 @@ Exercise
 
 Can you change the loop so that it counts down from 5 to 1?
 
+|05sols|
+
 Arrays
 ------
 
@@ -256,8 +260,8 @@ One way is this:
     }
 
 This is a different kind of ``for`` loop, where we run the code for each item in a list.
-Unfortunately some older browsers (notably Internet Explorer) don't support this.
-A more universal method, which will work on older browsers is this:
+
+In older code you may also see this method:
 
 .. code:: javascript
 
@@ -308,9 +312,10 @@ an array of strings, showing each one in turn. So if you start with:
 
     var sentence = ["I", "wandered", "lonely", "as", "a", "cloud"];
 
-the experiment should show each of these words in order. (Hint: see the use of ``for`` .... ``of``
+The experiment should show each of these words in order. (Hint: see the use of ``for`` .... ``of``
 :ref:`above <for-of>`).
 
+|05sols|
 
 Functions
 ---------
@@ -387,6 +392,8 @@ Given a list of names:
     var names = ['Hendrick', 'Arran', 'Kalvyn', 'Priyangi', 'Ted'];
 
 how would you call the ``greeting()`` function for each item in the list?
+
+|05sols|
 
 Return value
 ............

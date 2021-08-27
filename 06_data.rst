@@ -51,8 +51,10 @@ This produces something which should be easier to read, like this:
 Exercise
 ........
 
-Go back and change the ``factorial`` example to show a CSV table. What's missing from the table? [#missing]_
-(see footnote for the answer!)
+Go back and change the ``factorial`` example to show a CSV table.
+(:ref:`Here's how <showcsv06>`, in case you get stuck).
+
+What's missing from the table? [#missing]_ (see footnote for the answer!)
 
 Sending the data to the server
 ------------------------------
@@ -100,8 +102,8 @@ In the ``experiment.js`` file, add a new function:
 
 .. topic:: fetch
 
-    This uses a relatively new function called ``fetch``. While this is the best way to send data, it's not
-    supported by all web browsers. Notably, it doesn't work on Internet Explorer. If you need the experiment
+    This uses a function called ``fetch``. Note that this doesn't
+    work on Internet Explorer. If you need the experiment
     to be available on IE, you can either use a different method to send the data (see
     `the jsPsych documentation <http://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file>`_ )
     or use the `fetch polyfill <https://github.com/github/fetch>`_ [#polyfills]_ .
@@ -146,13 +148,19 @@ attached to the request, in a way that isn't visible to the user.
 
 The data that we send is:
 
-.. code:: json
+.. code::
 
     { filename: "test.csv", filedata: "\"rt\",\"stimulus\",\"key_press\",\"trial_type\",\"trial_index\", .... " }
 
 where ``filedata`` contains the whole contents of the CSV file. The PHP program at the other end receives this data
 in the POST.
 It opens a file corresponding to the given filename, and saves the data in it.
+
+Solution
+--------
+
+Here's an :ref:`example experiment <datasaving>` which demonstrates saving
+data at the end of the experiment.
 
 Adding new data fields
 ----------------------
@@ -302,6 +310,9 @@ We could also use ``if`` to only save particular trials. For example:
         }
     }
 
+Here's an :ref:`example experiment <linebyline>` which demonstrates saving data
+line-by-line.
+
 Exercise
 --------
 
@@ -350,14 +361,9 @@ to ask questions!
 
     It's much better to update to the latest jsPsych, though!
 
-Answers
--------
 
-* :ref:`Example experiment <datasaving>` which demonstrates saving data at the end
-  of the experiment.
-* :ref:`Example experiment <linebyline>` which demonstrates saving data line-by-line.
-* :ref:`Solution to exercise <surveytext>` which takes the result of a ``survey-text``
-  node and adds it as a new column.
+Here's an example :ref:`solution to this exercise <surveytext>` which takes the
+result of a ``survey-text`` node and adds it as a new column.
 
 .. rubric:: Footnotes
 

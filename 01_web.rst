@@ -5,13 +5,13 @@ About the Web
 
 The internet is a big network of computers, all connected. Here's a picture:
 
-.. image:: the_internet.jpg
+.. image:: images/the_internet.jpg
     :width: 90%
 
 In reality there are many more, of course! Let's think about what needs to happen
 for you to see this web page. This page is on another computer -- saved on a disk
 just as it would be on your computer. The other computer's name on the
-network is **|server_fqdn|**.
+network is: |server_fqdn|
 
 Requests and responses
 ----------------------
@@ -72,9 +72,7 @@ To give another example, a
 `link to this page <|web_url|>`_
 looks like this:
 
-.. code-block:: html
-
-    <a class="reference external" href="|web_url|">link to this page</a>
+.. include:: site_specific/link_to_this_page.rst
 
 CSS
 ---

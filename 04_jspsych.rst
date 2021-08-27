@@ -29,6 +29,9 @@ Now cut all the code you wrote in ``experiment.html`` file between
 ``<script>`` and ``</script>``, and paste it into ``experiment.js``.
 You can now delete the empty ``<script></script>`` in ``experiment.html``.
 
+Assuming that you followed on from the exercise in 02, when you've finished
+your files should look :ref:`like this <separatefile04>`.
+
 Adding more images
 ------------------
 
@@ -137,6 +140,13 @@ descriptive code -- see `this list <https://developer.mozilla.org/en-US/docs/Web
 
 It's always wise to test with the layout of keyboard and input language that
 your participants will use, so bear this in mind.
+
+Before you move on ....
+-----------------------
+
+If your code still isn't working, you could compare with
+:ref:`this example code <multipleimagessimple04>`. (If your code does what
+it needs to, don't worry!)
 
 Repetition
 ----------
@@ -279,6 +289,12 @@ Once you've finished the code should look like :ref:`this <factorial>`. As befor
 try your best to finish this on your own first, solving any problems by asking for help,
 looking at the code, or using Developer Tools.
 
+Here's
+:ref:`an example of working code with timeline variables and factorial design <factorial>`
+for you to compare with your own code. As always, things like variable names and
+filenames can be different, and don't worry about differences with the example
+if your code is working well.
+
 Exercise: Instructions
 ----------------------
 
@@ -313,3 +329,6 @@ Extra exercise: variable fixation duration
 Add a new variable to the factorial design, giving two different fixation durations.
 
 Change the definition of your fixation node to use this new variable.
+
+Here's :ref:`example code <factorial_with_fixation>` with all of these exercises completed: instructions,
+and a fixation cross of variable duration.

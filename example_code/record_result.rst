@@ -1,3 +1,5 @@
+.. _record-result:
+
 PHP code to receive data on the server
 ======================================
 

@@ -1,4 +1,4 @@
-.. include:: site_specific/server_name.rst
+.. include:: includes/download_links.rst
 
 An introduction to jsPsych
 ==========================
@@ -229,8 +229,8 @@ You'll have to:
 
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
-3. Add the ``jspsych-image-keyboard-response`` at the top of your HTML file (see step 6 of
-   the tutorial).
+3. Add the ``jspsych-image-keyboard-response`` plugin at the top of your HTML
+   file (see step 6 of the tutorial).
 4. Give jsPsych the name of the image -- check the documentation to see how.
 5. Upload your code again once you've made these changes.
 
@@ -242,6 +242,10 @@ A couple of things about files on the server:
 * The server cares about case of letters (capital vs. lower case letters). For example,
   if the file is called MYFACE.JPG and you type MyFace.jpg in your experiment, it won't work.
 
+Solution
+--------
+
+Here's :ref:`a solution to the exercise <exercise02>`.
 
 Credit
 ------
@@ -254,7 +258,7 @@ experiments in a web browser. Behavior Research Methods, 47(1), 1-12.
 doi:10.3758/s13428-014-0458-y
 <https://link.springer.com/article/10.3758/s13428-014-0458-y>`_
 
-|example_image_credit|
+.. include:: site_specific/example_image_credit.rst
 
 .. rubric:: Footnotes
 
