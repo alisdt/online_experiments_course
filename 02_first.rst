@@ -57,7 +57,7 @@ Here are some extra notes; keep these handy while you follow the tutorial.
 
 **Step 1**
     For convenience,
-    `here's the download link for jsPsych <|jspsych_download|>`_.
+    `here's the download link for jsPsych <https://github.com/jspsych/jsPsych/releases/download/v6.3.1/jspsych-6.3.1.zip>`_.
 
 **Step 2**
     To create your file, in your text editor use "Save As ....".
@@ -97,8 +97,8 @@ To upload the experiment you'll need some file transfer software. You're welcome
 use whatever you feel most comfortable with. For Windows or Mac, I recommend
 the free and open source program CyberDuck:
 
-| `Windows link <|cyberduck_win_download|>`_
-| `Mac link <|cyberduck_mac_download|>`_
+| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-7.10.1.35318.exe>`_
+| `Mac link <https://update.cyberduck.io/Cyberduck-7.10.1.35318.zip>`_
 
 For Linux, it will depend on your distribution. In most Linux distributions you can
 connect directly in the file browser, or use the ``scp`` command.
@@ -221,7 +221,7 @@ To illustrate the difference between different kinds of nodes, let's change
 our "Hello world" example to display an image. Take a look at the documentation
 for ``jspsych-image-keyboard-response`` plugin. You can pick your own image to
 display, or if you need one,
-`use this <|example_image|>`_.
+`use this <https://softdev.ppls.ed.ac.uk/static/images/nasa_proxima.png>`_.
 
 Now try to change your jsPsych program to show the image.
 

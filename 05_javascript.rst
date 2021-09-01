@@ -1,7 +1,7 @@
 An introduction to JavaScript
 =============================
 
-.. |05sols| :ref:`All solutions for this section <solutions05>`
+.. |05sols| replace:: :ref:`All solutions for this section <solutions05>`
 
 As mentioned briefly in the first session, JavaScript is a programming language that can be used
 to tell the web browser to react to user input, and change the contents of a web page dynamically

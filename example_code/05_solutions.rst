@@ -1,7 +1,10 @@
 .. _solutions05:
 
+Solution 05 (all exercises)
+===========================
+
 Solution: make the loop count down from 5 to 1
-==============================================
+----------------------------------------------
 
 .. code:: javascript
 
@@ -10,7 +13,7 @@ Solution: make the loop count down from 5 to 1
   }
 
 Solution: an experiment which loops through an array of strings
-===============================================================
+---------------------------------------------------------------
 
 .. code:: javascript
 
@@ -39,7 +42,7 @@ Solution: an experiment which loops through an array of strings
 You may have spotted that you could also do this using timeline variables!
 
 Solution: greetings
-===================
+-------------------
 
 .. code:: javascript
 

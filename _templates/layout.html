@@ -3,6 +3,13 @@
 <title>{{ title }}</title>
 {% endblock %}
 {% block header %}
+<div class="headerbar">
+  The teaching server (jspsychlearning.ppls.ed.ac.uk) is not suitable for
+  running experiments for projects and research.
+  If you're running such an experiment, please read
+  <a href="https://softdev.ppls.ed.ac.uk/online_experiments/00_about.html#servers">
+    this guidance</a>.
+</div>
 {% endblock %}
 {% block footer %}
 {{ super() }}

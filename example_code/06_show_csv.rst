@@ -1,5 +1,8 @@
 .. _showcsv06:
 
+06 Solution to Exercise (show CSV results)
+==========================================
+
 You just need to change:
 
 .. code:: javascript

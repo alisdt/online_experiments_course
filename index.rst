@@ -9,18 +9,17 @@ Welcome to Online Experiments! Please start with section 00, "About this course"
    00 About this course <00_about>
    01 About the Web <01_web>
    02 An introduction to jsPsych <02_first>
-   (02 Solution to exercise) <02_exercise_solution>
    03 Developer tools and editing <03_pract>
    04 The structure of a jsPsych experiment <04_jspsych>
-   (04 Solution, putting the code in its own file) <04_separate_file>
-   (04 Solution, multiple images) <multiple_images_simple>
    05 An introduction to JavaScript <05_javascript>
-   (05 Solutions) <05_solutions>
    06 Getting data from your experiment <06_data>
-   (06 Solution, CSV results)
-   
    07 Allocating participant and condition numbers <07_ppt>
    08 More interesting stimuli <08_stimuli>
+   Solution 02 <example_code/02_exercise_solution>
+   Solution 04 (code in its own file) <example_code/04_separate_file>
+   Solution 04 (multiple images) <example_code/multiple_images_simple>
+   Solution 05 (all exercises) <example_code/05_solutions>
+   Solution 06 (CSV results) <example_code/06_show_csv>
    A1 Repetition code example <example_code/repetition>
    A2 Factorial code example <example_code/factorial>
    A3 Factorial with fixation <example_code/factorial_with_fixation>

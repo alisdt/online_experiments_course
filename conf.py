@@ -114,6 +114,9 @@ html_sidebars = {
     ]
 }
 
+html_css_files = [
+    'css/custom.css'
+]
 
 # -- Options for HTMLHelp output ------------------------------------------
 

@@ -11,7 +11,7 @@ The internet is a big network of computers, all connected. Here's a picture:
 In reality there are many more, of course! Let's think about what needs to happen
 for you to see this web page. This page is on another computer -- saved on a disk
 just as it would be on your computer. The other computer's name on the
-network is: |server_fqdn|
+network is: **softdev.ppls.ed.ac.uk**
 
 Requests and responses
 ----------------------
@@ -31,8 +31,8 @@ they have files on a disk, and can run programs.
 The web browser
 ---------------
 
-For this class, I recommend that you use Mozilla Firefox.
-You could also use Microsoft Edge or Google Chrome.
+For this class, I recommend that you use Mozilla Firefox, Microsoft Edge or
+Google Chrome.
 
 Firefox
     `https://www.mozilla.org/en-GB/firefox/new/ <https://www.mozilla.org/en-GB/firefox/new/>`_
@@ -69,7 +69,7 @@ For example:
 This sets the text that appears in the title bar of your browser window.
 
 To give another example, a
-`link to this page <|web_url|>`_
+`link to this page <https://softdev.ppls.ed.ac.uk/online_experiments/01_web.html>`_
 looks like this:
 
 .. include:: site_specific/link_to_this_page.rst
@@ -90,8 +90,7 @@ Near the top of the page you'll see:
 This tells the browser to use a stylesheet, telling it how to format the page.
 Let's take a look at it. Click on the text after ``href=`` in your
 "view source" window. (If that doesn't work, use
-`this link here <|css_url|>`_).
-You'll have to scroll down!
+`this link here <https://softdev.ppls.ed.ac.uk/online_experiments/_static/alabaster.css>`_).
 
 Just after the heading "body styles", you'll see this:
 

@@ -3,7 +3,7 @@
 Multiple images
 ===============
 
-This code uses ``jspsych-html-keyboard-response``, so make sure it's included in your
+This code uses ``jspsych-image-keyboard-response``, so make sure it's included in your
 ``experiment.html``.
 
 .. code:: javascript
@@ -19,11 +19,14 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
       stimulus: 'Cat2.jpg'
   };
 
-  // add a list of all images, these will be loaded right at the start
-  // to avoid delays
   jsPsych.init({
       timeline: [trial1, trial2],
       on_finish: function() {
           jsPsych.data.displayData();
       }
   });
+
+As before the images you use will need to be in the folder alongside your code.
+
+You'll also need `experiment.html` but this will be the same as in the previous
+exercise.
