@@ -8,29 +8,13 @@ have a HTML file called `experiment.html` that looks like this:
 
 .. code:: html
 
-  <html>
-      <head>
-          <title>My experiment</title>
-          <script src="jspsych-6.3.1/jspsych.js"></script>
-          <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
-          <script src="experiment.js"></script>
-          <link href="jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
-      </head>
-      <body></body>
-  </html>
+{{ s04_experiment_html }}
 
 and a JavaScript file called `experiment.js` that looks like this:
 
 .. code:: javascript
 
-    var trial = {
-        type: 'image-keyboard-response',
-        stimulus: 'nasa_proxima.png'
-    };
-
-    jsPsych.init({
-        timeline: [trial]
-    });
+{{ s04_experiment_js }}
 
 As before this may differ in small details like the file paths.
 

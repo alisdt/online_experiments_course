@@ -28,10 +28,33 @@
 #
 # needs_sphinx = '1.0'
 
+import sys, os
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+sys.path.append(os.path.abspath("ext"))
+
+extensions = ["rstjinja"]
+
+examples = [
+    x for x in os.listdir("example_src")
+    if os.path.isdir(os.path.join("example_src",x))
+]
+
+data = {}
+def indent(code):
+    """indent code so it works in a .. code: block"""
+    return "\n".join("    "+line for line in code.split("\n"))
+
+for subdir in examples:
+    for filename in os.listdir(os.path.join("example_src",subdir)):
+        filepath = os.path.join("example_src",subdir,filename)
+        with open(filepath) as f:
+            data[subdir+"_"+filename.replace(".","_")] = indent(f.read())
+
+html_context = data
+print(data)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

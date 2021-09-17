@@ -7,27 +7,7 @@ Solution 02
 
 .. code:: html
 
-    <html>
-        <head>
-            <title>My experiment</title>
-            <script src="jspsych-6.3.1/jspsych.js"></script>
-            <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
-            <link href="jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
-        </head>
-        <body></body>
-        <script>
-
-        var trial = {
-            type: 'image-keyboard-response',
-            stimulus: 'nasa_proxima.png'
-        }
-
-        jsPsych.init({
-            timeline: [trial]
-        })
-
-        </script>
-    </html>
+{{ s02_experiment_html }}
 
 In this example, the image (`nasa_proxima.png`) should be in the same folder as
 `experiment.html`.

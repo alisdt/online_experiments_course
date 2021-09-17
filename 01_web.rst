@@ -1,5 +1,3 @@
-.. include:: site_specific/server_name.rst
-
 About the Web
 =============
 

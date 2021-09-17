@@ -1,5 +1,3 @@
-.. include:: includes/download_links.rst
-
 An introduction to jsPsych
 ==========================
 
