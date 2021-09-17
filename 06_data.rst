@@ -76,7 +76,7 @@ This receives the data and saves it to disk.
 This small program is in a different programming language called PHP. I won't go into the details
 of this -- if you're interested, PHP has a lot in common with Javascript.
 
-Create a file called ``record_result.php``, and add the code found on :doc:`this page <example_code/record_result>`.
+Create a file called ``save_data.php``, and add the code found on :doc:`this page <example_code/record_result>`.
 
 Edit the text to replace UUN with your username. Now upload the file to the same place as the ``factorial`` example.
 
@@ -89,7 +89,7 @@ In the ``experiment.js`` file, add a new function:
 .. code:: javascript
 
     function saveData(name, data_in){
-        var url = 'record_result.php';
+        var url = 'save_data.php';
         var data_to_send = {filename: name, filedata: data_in};
         fetch(url, {
             method: 'POST',
@@ -292,7 +292,7 @@ Now before ``jsPsych.init``, add this new function:
         saveData("test.csv", line);
     }
 
-This will work with the existing ``record_result.php``, because it will append to an existing file.
+This will work with the ``save_data.php`` code, because it will append new data sent to an existing file.
 
 We could also use ``if`` to only save particular trials. For example:
 

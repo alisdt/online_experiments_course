@@ -115,7 +115,7 @@ This adds the participant ID to the filename, so that they will be called ``1_da
 and so on.
 
 We could also add the date to the filename. It's better to do this on the server, as the
-participant's computer may have the date wrong. In ``record_result.php``, change the line:
+participant's computer may have the date wrong. In ``save_data.php``, change the line:
 
 .. code:: php
 

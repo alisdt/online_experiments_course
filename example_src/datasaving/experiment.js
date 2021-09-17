@@ -18,7 +18,7 @@ var trials_with_variables = {
 };
 
 function saveData(name, data_in){
-    var url = 'record_result.php';
+    var url = 'save_data.php';
     var data_to_send = {filename: name, filedata: data_in};
     fetch(url, {
         method: 'POST',

@@ -4,7 +4,7 @@ Data saving example
 ===================
 
 Code on the server (to receive the data). Replace ``atullo2`` with your username!
-Save this as `record_result.php`
+Save this as `save_data.php`
 
 .. code:: php
 

@@ -7,7 +7,7 @@ This example demonstrates gathering a participant number
 from the URL, calculating a condition number, and adding the participant number
 and the date to the data filename.
 
-``record_result.php`` as given :ref:`here <record_result>`.
+``save_data.php`` as given :ref:`here <record_result>`.
 
 In ``experiment.js``:
 
@@ -44,7 +44,7 @@ In ``experiment.js``:
     };
 
     function saveData(name, data_in){
-        var url = 'record_result.php';
+        var url = 'save_data.php';
         var data_in = {filename: name, filedata: data_to_send};
         fetch(url, {
             method: 'POST',
