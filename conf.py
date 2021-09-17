@@ -50,11 +50,19 @@ def indent(code):
 for subdir in examples:
     for filename in os.listdir(os.path.join("example_src",subdir)):
         filepath = os.path.join("example_src",subdir,filename)
+        fl = filename.lower()
+        if os.path.isdir(filepath):
+            continue
+        if any(fl.endswith(ext) for ext in [".jpg", ".png"]):
+            continue # skip binary files
         with open(filepath) as f:
-            data[subdir+"_"+filename.replace(".","_")] = indent(f.read())
+            try:
+                data[subdir+"_"+filename.replace(".","_")] = indent(f.read())
+            except:
+                sys.stderr.write("Failed on: "+filename)
+                raise
 
 html_context = data
-print(data)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

@@ -8,8 +8,7 @@ Save this as `save_data.php`
 
 .. code:: php
 
-{{ datasaving_record_result_php }}
-
+{{ datasaving_save_data_php }}
 
 The experiment (which sends the data).
 

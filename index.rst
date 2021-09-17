@@ -1,7 +1,7 @@
 Online Experiments with jsPsych
 ===============================
 
-Welcome to Online Experiments! Please start with section 00, "About this course". If you are following this course remotely, you will need to follow the instructions in that section to join the University VPN.
+Welcome to Online Experiments! Please start with section 00, "About this course".
 
 .. toctree::
    :maxdepth: 2
