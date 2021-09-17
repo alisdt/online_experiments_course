@@ -29,17 +29,17 @@ they have files on a disk, and can run programs.
 The web browser
 ---------------
 
-For this class, I recommend that you use Mozilla Firefox, Microsoft Edge or
-Google Chrome.
-
-Firefox
-    `https://www.mozilla.org/en-GB/firefox/new/ <https://www.mozilla.org/en-GB/firefox/new/>`_
+For this class, I recommend that you use Microsoft Edge,
+Google Chrome or Mozilla Firefox.
 
 Edge
     `https://www.microsoft.com/en-us/edge <https://www.microsoft.com/en-us/edge>`_
 
 Chrome
     `https://www.google.co.uk/chrome/ <https://www.google.co.uk/chrome/>`_
+
+Firefox
+    `https://www.mozilla.org/en-GB/firefox/new/ <https://www.mozilla.org/en-GB/firefox/new/>`_
 
 HTML
 ----
