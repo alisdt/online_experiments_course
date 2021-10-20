@@ -70,8 +70,7 @@ you might need to do a "hard reload", here's a reminder:
 
 | Firefox: ⌘-shift-R on Mac, ctrl-shift-R on Windows or Linux
 | Chrome: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
-| Safari: ⌘-option-E
-| Internet Explorer or Edge: ctrl-F5
+| Edge: ctrl-F5
 
 Results
 -------

@@ -73,8 +73,7 @@ Here are some extra notes; keep these handy while you follow the tutorial.
 
 | Firefox: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
 | Chrome: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
-| Safari: ⌘-option-E
-| Internet Explorer or Edge: ctrl-F5
+| Edge: ctrl-F5
 
 Follow the tutorial through to the end. This will tell you how to create this first
 simple jsPsych program in the web browser. At this point it's still all running

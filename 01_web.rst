@@ -30,7 +30,8 @@ The web browser
 ---------------
 
 For this class, I recommend that you use Microsoft Edge,
-Google Chrome or Mozilla Firefox.
+Google Chrome or Mozilla Firefox. I don't recommend Safari as it can have
+trouble with some online experiments.
 
 Edge
     `https://www.microsoft.com/en-us/edge <https://www.microsoft.com/en-us/edge>`_
@@ -47,13 +48,7 @@ HTML
 When a web page is sent to your computer, it will be in HTML. This is a language
 which can represent the content and structure of a page -- how text is divided,
 which images will be included, and so on. To see what it looks like, you can ask
-your web browser:
-
-Firefox or Chrome
-    Right-click and "View Page Source"
-
-Edge
-    Press F12 to start Developer tools, then right-click and "View Source"
+your web browser. Right-click anywhere on the page and select "View Page Source".
 
 You'll see that all the content of the page is in there. The extra information
 in the tags help to give the document structure.

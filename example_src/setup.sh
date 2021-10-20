@@ -12,7 +12,7 @@ done
 
 wget https://github.com/jspsych/jsPsych/releases/download/v6.3.1/jspsych-6.3.1.zip
 unzip -o jspsych-6.3.1.zip
-for example in s02 s04 s05 datasaving factorial_with_fixation factorial linebyline;
+for example in s02 s04 s05 datasaving factorial_with_fixation factorial linebyline debugging;
 do
   ln -s ../jspsych-6.3.1 ${example}/jspsych-6.3.1;
 done

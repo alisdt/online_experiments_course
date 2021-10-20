@@ -27,13 +27,19 @@ Open a new file, and add this text:
         </script>
     </html>
 
-This looks similar to our first experiments with jsPsych. Now you can add more code where the
+This looks similar to our first experiments with jsPsych. Save this in a file
+(as e.g. section05.html)
+so you can load it in your browser, the same way you did with experiment.html.
+
+When you first load it nothing will happen, as there's no code there yet!
+
+Now you can add some JavaScript where the
 
 .. code:: html
 
     // code goes here!
 
-comment is.
+line is.
 
 Add the line
 
@@ -41,7 +47,8 @@ Add the line
 
     window.alert("hello");
 
-and reload the page. You'll see a message box with ``hello`` (or whatever message you typed).
+Save the file and then reload the page in your browser. You'll see a message
+box with ``hello`` (or whatever message you typed).
 
 .. topic:: About this worksheet
 
@@ -134,27 +141,37 @@ This is made up of
 #. in round brackets ``( )`` [#round]_, a condition i.e. something that can be examined to see if it's true or false, and
 #. in curly brackets ``{ }`` [#curly]_, a block of code, which is a series of JavaScript commands with ``;`` at the end of each command.
 
-.. topic:: Conditions
+.. topic:: An aside: JavaScript and the semicolon (;)
 
-    As you saw in the example, ``if`` decides whether
-    to run some code or not depending on a condition.
+   You might notice that some code (even my code!) sometimes doesn't have
+   a semicolon at the end of every command. This is because web browsers are
+   built to be tolerant of some common errors, including missing semicolons.
 
-    It's important to note that when comparing two values to see if they are equal,
-    you must use two equals signs ``==``. A single equals sign ``=`` sets a variable.
+   It's good to get into
+   the habit of using the semicolon, though, as there are lots of other
+   programming languages you might need in the future
+   (just a few: Java, C++, PHP and C#) where a missing semicolon will mean that
+   the program won't run.
 
-    For example, this code:
+As you saw in the example, ``if`` decides whether
+to run some code or not depending on a condition.
 
-    .. code:: javascript
+It's important to note that when comparing two values to see if they are equal,
+you must use two equals signs ``==``. A single equals sign ``=`` sets a variable.
 
-        if (x == 3) {
+For example, this code:
 
-    is testing if the value of the variable ``x`` is ``3``. This code:
+.. code:: javascript
 
-    .. code:: javascript
+    if (x == 3) {
 
-        var x = 3;
+is testing if the value of the variable ``x`` is ``3``. This code:
 
-    is creating a new variable ``x``, and using it to store the value ``3``.
+.. code:: javascript
+
+    var x = 3;
+
+is creating a new variable ``x``, and using it to store the value ``3``.
 
 You can also provide
 alternative code to run if the condition is not true. Change your code
