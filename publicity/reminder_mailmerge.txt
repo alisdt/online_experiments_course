@@ -1,0 +1,22 @@
+Hi,
+
+Thanks for signing up for the Online Experiments workshop starting tomorrow. Here's some information you'll need in the class. (You don't need to do anything now -- please just have this email to hand in the class).
+
+Materials for the class: http://softdev.ppls.ed.ac.uk/online_experiments/
+
+If you have a Windows or Mac laptop, you'll be using the free CyberDuck software to connect to the server. Here are the download links; you could download it before the class if you have time:
+
+Windows: https://update.cyberduck.io/windows/Cyberduck-Installer-7.2.5.32097.exe
+
+Mac: https://update.cyberduck.io/Cyberduck-7.2.5.32097.zip
+
+If you have a Linux laptop, we can advise you in the class about what you need to use.
+
+Finally, you'll need the details below to log in to the server:
+
+Username: {{uun}}
+Password: {{pass}}
+
+Cheers and hope to see you tomorrow,
+
+Alisdair

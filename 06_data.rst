@@ -78,7 +78,7 @@ of this -- if you're interested, PHP has a lot in common with Javascript.
 
 Create a file called ``save_data.php``, and add the code found on :doc:`this page <example_code/record_result>`.
 
-Edit the text to replace UUN with your username. Now upload the file to the same place as the ``factorial`` example.
+Now upload the file to the same place as the ``factorial`` example.
 
 As I said before, this code will receive the data. Now we need to write some code to *send* the data. Remember
 that the experiment is running entirely in the participant's web browser. We'll write some code that sends all

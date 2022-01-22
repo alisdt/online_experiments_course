@@ -511,6 +511,101 @@ If this seems confusing, don't worry -- just remember that the form above (using
 
     A function without a name is called an *anonymous function*.
 
+Code formatting in JavaScript
+-----------------------------
+
+For the most part, how your code looks in JavaScript is up to you. This is mainly down
+to where to put spaces and line breaks! Getting this right will help
+you to understand the code if you ever have to come back to it. It's also important
+if others will need to read it.
+
+For example, let's look at the start of the table of values (to use with timeline variables)
+that we saw in the last section:
+
+======== =================
+stimulus stimulus_duration
+======== =================
+Dog2.jpg 400
+Dog1.jpg 1200
+Dog1.jpg 800
+Dog3.jpg 800
+======== =================
+
+In JavaScript we could represent this as:
+
+.. code:: javascript
+
+    var timeline_values = [{stimulus:"Dog2.jpg",stimulus_duration:400},{stimulus:"Dog1.jpg",stimulus_duration:1200},{stimulus:"Dog1.jpg",stimulus_duration:800},{stimulus:"Dog3.jpg",stimulus_duration:800}];
+
+Hopefully it's obvious that this is a bad idea, the line is far too long!
+JavaScript is happy to break lines anywhere, as long as it isn't in the middle
+of a variable name or string (even then, a backslash \\ will let you do this, as
+you may have seen). To start with, let's give each
+of the items in the array a line to itself:
+
+.. code:: javascript
+
+    var timeline_values = [
+        {stimulus:"Dog2.jpg",stimulus_duration:400},
+        {stimulus:"Dog1.jpg",stimulus_duration:1200},
+        {stimulus:"Dog1.jpg",stimulus_duration:800},
+        {stimulus:"Dog3.jpg",stimulus_duration:800}];
+
+The last square bracket would be easy to miss when reading the code, though!
+Putting it on the next line makes it easier to spot:
+
+.. code:: javascript
+
+    var timeline_values = [
+        {stimulus:"Dog2.jpg",stimulus_duration:400},
+        {stimulus:"Dog1.jpg",stimulus_duration:1200},
+        {stimulus:"Dog1.jpg",stimulus_duration:800},
+        {stimulus:"Dog3.jpg",stimulus_duration:800}
+    ];
+
+We can also insert some spaces, to make the code even more readable:
+
+.. code:: javascript
+
+    var timeline_values = [
+        { stimulus: "Dog2.jpg", stimulus_duration: 400 },
+        { stimulus: "Dog1.jpg", stimulus_duration: 1200 },
+        { stimulus: "Dog1.jpg", stimulus_duration: 800 },
+        { stimulus: "Dog3.jpg", stimulus_duration: 800 }
+    ];
+
+You can imagine that if there were more values in each of these objects,
+we might need to add more
+line breaks. It's not really necessary in this case, but if we wanted to do it,
+it would look something like:
+
+.. code:: javascript
+
+    var timeline_values = [
+        {
+            stimulus: "Dog2.jpg", 
+            stimulus_duration: 400
+        },
+        {
+            stimulus: "Dog1.jpg",
+            stimulus_duration: 1200
+        },
+        {
+            stimulus: "Dog1.jpg",
+            stimulus_duration: 800
+        },
+        {
+            stimulus: "Dog3.jpg",
+            stimulus_duration: 800
+        }
+    ];
+
+Note that I'm using indentation to show each level of brackets. This makes the structure
+of the code much clearer.
+
+This is one suggestion for how to format code, but any way is fine as long as it's consistent
+and the code is easy to read.
+
 .. rubric:: Footnotes
 
 .. [#round] .... also called "parentheses".

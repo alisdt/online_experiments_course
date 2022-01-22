@@ -3,7 +3,7 @@
 Data saving example
 ===================
 
-Code on the server (to receive the data). Replace ``atullo2`` with your username!
+Code on the server (to receive the data).
 Save this as `save_data.php`
 
 .. code:: php

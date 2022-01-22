@@ -127,8 +127,6 @@ to this:
 
   $path = $server_data."/".date("Y-m-d")."_".$obj["filename"];
 
-(As usual you should change ``UUN`` into your username on the server).
-
 This adds the date (according to the *server* clock) to the start of the filename, plus an underscore
 character ``_`` to separate this date from the rest of the name.
 
