@@ -1,13 +1,13 @@
 
-..
-  University VPN
-  --------------
+University VPN
+--------------
 
-..
-  Normally, the teaching server is only allowed from inside the University network -- this includes wired internet connections and the "eduroam" wireless network. To connect from other locations (including the "central" wireless network) please click the link below and follow the instructions to access the VPN:
+Normally, the teaching server is only allowed from inside the University network,
+including wired internet connections and the "eduroam" wireless network.
+To connect from other locations (including the "central" wireless network)
+please click the link below and follow the instructions to access the VPN:
 
-..
-  `The details are here <https://www.ed.ac.uk/information-services/computing/desktop-personal/vpn/vpn-service-introduction>`_.
+`The details are here <https://www.ed.ac.uk/information-services/computing/desktop-personal/vpn/vpn-service-introduction>`_.
 
 .. _servers:
 

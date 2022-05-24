@@ -1,8 +1,8 @@
-var trial = {
-    type: 'image-keyboard-response',
+const jsPsych = initJsPsych();
+
+const trial = {
+    type: jsPsychImageKeyboardResponse,
     stimulus: 'nasa_proxima.png'
 };
 
-jsPsych.init({
-    timeline: [trial]
-});
+jsPsych.run([trial]);

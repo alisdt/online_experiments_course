@@ -42,7 +42,11 @@ examples = [
     if os.path.isdir(os.path.join("example_src",x))
 ]
 
-data = {}
+# basic variables for substitution, will add to this along the way
+data = {
+    'teaching_server_fqdn': 'dogbiscuit.ppls.ed.ac.uk'
+}
+
 def indent(code):
     """indent code so it works in a .. code: block"""
     return "\n".join("    "+line for line in code.split("\n"))

@@ -1,21 +1,20 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>My experiment</title>
-        <script src="jspsych-6.3.1/jspsych.js"></script>
-        <script src="jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js"></script>
-        <link href="jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
+        <script src="jspsych/jspsych.js"></script>
+        <script src="jspsych/plugin-image-keyboard-response.js"></script>
+        <link href="jspsych/jspsych.css" rel="stylesheet" type="text/css">
     </head>
     <body></body>
     <script>
+    const jsPsych = initJsPsych();
 
-    var trial = {
-        type: 'image-keyboard-response',
+    const trial = {
+        type: jsPsychImageKeyboardResponse,
         stimulus: 'nasa_proxima.png'
     };
 
-    jsPsych.init({
-        timeline: [trial]
-    });
-
+    jsPsych.run([trial]);
     </script>
 </html>

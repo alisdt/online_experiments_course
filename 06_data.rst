@@ -367,7 +367,7 @@ result of a ``survey-text`` node and adds it as a new column.
 
 .. rubric:: Footnotes
 
-.. [#ourserver] This doesn't apply to our server, ``jspsychlearning.ppls.ed.ac.uk``, which is
+.. [#ourserver] This doesn't apply to our server, ``{{ teaching_server_fqdn }}``, which is
     behind the University firewall -- but most
     real online experiments will be made accessible to the world.
 

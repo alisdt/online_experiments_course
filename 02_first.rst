@@ -44,8 +44,10 @@ First experiment
 
 Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
 
-We're going to follow the first tutorial. On the left of the page, click on
-"Tutorials" and then "The Basics: Hello World".
+We're going to follow the first tutorial. The tutorial offers you some
+options on how to install jsPsych. `Here's the link to go straight to our
+preferred option <https://www.jspsych.org/7.1/tutorials/hello-world/#option-2-download-and-host-jspsych>`_.
+Follow steps 1-7 at this link.
 
 This first example only uses the web browser, it doesn't send any information
 back to the server. Once you've got it working, I'll show you how to run the
@@ -53,20 +55,15 @@ same experiment, with the files on the server.
 
 Here are some extra notes; keep these handy while you follow the tutorial.
 
-**Step 1**
-    For convenience,
-    `here's the download link for jsPsych <https://github.com/jspsych/jsPsych/releases/download/v6.3.1/jspsych-6.3.1.zip>`_.
-
-**Step 2**
+**Step 3**
     To create your file, in your text editor use "Save As ....".
     Go to the folder where you unpacked jsPsych, and give the filename ``experiment.html``.
 
-**Step 3**
     To open ``experiment.html``, try double-clicking on it.
     If that doesn't work, right-click on it, choose "Open with ...." and
     choose a web browser.
 
-**Step 4**
+**Step 7**
     If you already have the file open in the web browser, you just
     need to reload it. If that doesn't work you may need to "hard reload".
     How you do this depends on your browser:
@@ -87,15 +84,15 @@ at how to upload your experiment files to a server.
 Uploading your experiment
 -------------------------
 
-You should have an account on the experiment server, ``jspsychlearning.ppls.ed.ac.uk``.
+You should have an account on the experiment server, ``{{ teaching_server_fqdn }}``.
 If not, please ask one of the tutors.
 
 To upload the experiment you'll need some file transfer software. You're welcome to
 use whatever you feel most comfortable with. For Windows or Mac, I recommend
 the free and open source program CyberDuck:
 
-| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-7.10.1.35318.exe>`_
-| `Mac link <https://update.cyberduck.io/Cyberduck-7.10.1.35318.zip>`_
+| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-8.2.1.36773.exe>`_
+| `Mac link <https://update.cyberduck.io/Cyberduck-8.2.1.36773.zip>`_
 
 For Linux, it will depend on your distribution. In most Linux distributions you can
 connect directly in the file browser, or use the ``scp`` command.
@@ -116,7 +113,9 @@ This window will appear:
 Select "SFTP" from the dropdown menu at the top.
 Fill in your UUN and the password you were given for your account.
 
-.. include:: site_specific/log_in_to_server.rst
+Under "Server" give the value:
+
+``{{ teaching_server_fqdn }}``
 
 Click on Connect.
 
@@ -171,8 +170,8 @@ and then collect a response. In the tutorial you saw the example:
 
 .. code-block:: javascript
 
-    var hello_trial = {
-        type: 'html-keyboard-response',
+    const hello_trial = {
+        type: jsPsychHtmlKeyboardResponse,
         stimulus: 'Hello world!'
     }
 
@@ -190,8 +189,8 @@ and many others.
 
 Go back to `the jsPsych website <http://www.jspsych.org/>`_ and click on "Plugins".
 
-The node above has the type ``html-keyboard-response``. The corresponding plugin
-is ``jspsych-html-keyboard-response``. Find this in the response and click on it.
+The node above has the type ``jsPsychHtmlKeyboardResponse``. The corresponding plugin
+is ``html-keyboard-response``. Find this in the menu under "Plugins" and click on it.
 
 Each kind of node can be set up using different parameters. The name of each parameter is
 the thing before the colon : in the code above. For example:
@@ -205,18 +204,16 @@ Every parameter has a default value. If a value isn't given, jsPsych will use
 this default value. In the case of html-keyboard-response, for example, the default
 for ``trial_duration`` is ``null``. In the documentation it says:
 
-  If this is null, then the stimulus will remain visible until the trial ends.
+  If the value of this parameter is null, then the trial will wait for a response indefinitely.
 
-In other words, the default is to wait until the trial ends. This leads to
-another question -- when does the trial end? Take a look at the ``response_ends_trial``
-parameter.
+In other words, the default is to wait until the participant responds.
 
 Exercise
 --------
 
 To illustrate the difference between different kinds of nodes, let's change
 our "Hello world" example to display an image. Take a look at the documentation
-for ``jspsych-image-keyboard-response`` plugin. You can pick your own image to
+for ``image-keyboard-response`` plugin. You can pick your own image to
 display, or if you need one,
 `use this <https://softdev.ppls.ed.ac.uk/static/images/nasa_proxima.png>`_.
 
@@ -226,8 +223,9 @@ You'll have to:
 
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
-3. Add the ``jspsych-image-keyboard-response`` plugin at the top of your HTML
-   file (see step 6 of the tutorial).
+3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
+   file (see
+   `step 6 of the tutorial <https://www.jspsych.org/7.1/tutorials/hello-world/#step-6-use-a-plugin-to-print-a-message>`_).
 4. Give jsPsych the name of the image -- check the documentation to see how.
 5. Upload your code again once you've made these changes.
 

@@ -42,7 +42,7 @@ like this:
 .. code:: javascript
 
     var image2_trial = {
-        type: 'image-keyboard-response',
+        type: jsPsychImageKeyboardResponse,
         stimulus: 'image2.jpg'
     }
 
@@ -54,11 +54,12 @@ course you can choose another image for yourself.
 Make sure that the name after ``stimulus:`` matches the exact name of
 the image on the server.
 
-You can then add this image to the timeline with:
+You can then add this image to the timeline by changing the line at the
+end of the code to:
 
 .. code:: javascript
 
-    timeline: [hello_trial, image2_trial]
+    jsPsych.run([hello_trial, image2_trial]);
 
 Your code might not look exactly like this -- the two names between the
 ``[]`` should match the names you used earlier in the code.
@@ -78,21 +79,13 @@ Results
 In a future session we'll look at how to store results on the server.
 For now, we'll display them on the screen at the end of the experiment.
 
-You can do this by adding another line to the call to ``jsPsych.init``.
-Add the code:
+You can do this by changing the call to ``initJsPsych`` at the start
+of the code to:
 
 .. code:: javascript
 
-    on_finish: function() {
-        jsPsych.data.displayData();
-    }
 
-So now, the whole of that part of the code should look like this:
-
-.. code:: javascript
-
-    jsPsych.init({
-        timeline: [hello_trial, image2_trial],
+    const jsPsych = initJsPsych({
         on_finish: function() {
             jsPsych.data.displayData();
         }
@@ -130,16 +123,6 @@ the space bar. Here the Space bar has been pressed, in the output:
 
 there's a space between the second pair of quotes.
 
-Key codes
-.........
-
-Keys are reported by jsPsych according to the character on the key that's pressed,
-e.g. 'a', 'b', 'c'. Other keys (Alt, Shift etc.) will be given as a standard
-descriptive code -- see `this list <https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values>`_
-
-It's always wise to test with the layout of keyboard and input language that
-your participants will use, so bear this in mind.
-
 Before you move on ....
 -----------------------
 
@@ -152,7 +135,7 @@ Repetition
 
 What if you want to repeat a set of trials several times? jsPsych allows
 you to do this without having to type out all the repetitions. After your
-node definitions (``var hello_trial = { ....``) add a line:
+node definitions (``const hello_trial = { ....``) add a line:
 
 .. code:: javascript
 
@@ -164,22 +147,17 @@ This puts your two nodes into a list, called ``trials``. Now add a line:
 
 .. code:: javascript
 
-    var repeated_trials = jsPsych.randomization.repeat(trials,5);
+    const repeated_trials = jsPsych.randomization.repeat(trials,5);
 
 This repeats the list ``trials`` five times, randomises it, and puts the
 result in a new list called ``repeated_trials``.
 
-Finally, we use this new list as our timeline. Change the ``jsPsych.init``
+Finally, we use this new list as our timeline. Change the ``jsPsych.run``
 call to this:
 
 .. code:: javascript
 
-    jsPsych.init({
-        timeline: repeated_trials,
-        on_finish: function() {
-            jsPsych.data.displayData();
-        }
-    });
+    jsPsych.run([repeated_trials]);
 
 Now reload and run your experiment again. You should see ten trials in total,
 with five of each image.

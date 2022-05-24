@@ -8,10 +8,7 @@ if (substr(realpath(dirname($path)), 0, strlen($server_data))!=$server_data) {
     error_log("attempt to write to bad path: ".$path);
 } else {
     $outfile = fopen($path, "a");
-    fwrite(
-        $outfile,
-        sprintf($obj["filedata"])
-    );
+    fwrite($outfile,$obj["filedata"]);
     fclose($outfile);
 }
 ?>
