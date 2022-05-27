@@ -203,7 +203,7 @@ for the first experiment and replace ``hello`` with ``factorial``.
 Let's create a factorial design over a set of images and a set of stimulus durations.
 
 Look at the
-`documentation for the image-keyboard-response plugin <http://www.jspsych.org/plugins/jspsych-image-keyboard-response/>`_.
+`documentation for the image-keyboard-response plugin <http://www.jspsych.org/6.3/plugins/jspsych-image-keyboard-response/>`_.
 There is a ``stimulus_duration`` parameter which controls the duration of the stimulus.
 
 So, we can make a full-factorial design with:
@@ -302,7 +302,7 @@ This should go in the main timeline (in jsPsych.init).
 
 You can use the ``html-keyboard-response`` plugin, which you saw in the "Hello World!"
 example right at the start, or you can use the ``instructions`` plugin
-(`documented here <https://www.jspsych.org/plugins/jspsych-instructions/>`_). Remember that
+(`documented here <https://www.jspsych.org/6.3/plugins/jspsych-instructions/>`_). Remember that
 when you add a plugin to an experiment, there must be a corresponding ``<script src="...."></script>``
 in ``experiment.html``.
 

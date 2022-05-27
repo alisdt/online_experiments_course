@@ -105,7 +105,7 @@ In the ``experiment.js`` file, add a new function:
     This uses a function called ``fetch``. Note that this doesn't
     work on Internet Explorer. If you need the experiment
     to be available on IE, you can either use a different method to send the data (see
-    `the jsPsych documentation <http://www.jspsych.org/overview/data/#storing-data-permanently-as-a-file>`_ )
+    `the jsPsych documentation <http://www.jspsych.org/6.3/overview/data/#storing-data-permanently-as-a-file>`_ )
     or use the `fetch polyfill <https://github.com/github/fetch>`_ [#polyfills]_ .
 
 Now finally, we need to change the experiment to send the data. Change your call to ``jsPsych.init``
@@ -126,7 +126,7 @@ Note that the previous code called the ``displayData()`` function, which just sh
 This new code calls ``jsPsych.data.get()`` to get a ``DataCollection`` object. Then we call the ``DataCollection``'s
 ``csv()`` method, to get that data as CSV. ``DataCollection`` objects are a new feature of jsPsych, which
 give you lots of control over your data. We'll take a look at some specific things later -- for now,
-`here's a link to the documentation <http://www.jspsych.org/core_library/jspsych-data/#datacollection>`_
+`here's a link to the documentation <http://www.jspsych.org/6.3/core_library/jspsych-data/#datacollection>`_
 
 How it works
 ------------
@@ -321,7 +321,7 @@ for example their Crowdflower ID or Amazon MTurk number, that will allow you to
 verify their participation and pay them.
 
 Add a node at the beginning of your code which allows the user to input an ID, using
-`the survey-text plugin <http://www.jspsych.org/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
+`the survey-text plugin <http://www.jspsych.org/6.3/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
 to your ``experiment.html`` file to load the plugin). Add this node to your experiment
 at the beginning. This works a little differently to the plugins we've seen before,
 so be sure to read the documentation before you start.
@@ -337,7 +337,7 @@ without a name -- see :ref:`this section <functions>`), and inside it use
 a new column to the data which includes the ID. The function you pass to
 ``on_finish`` receives the data from the trial as an
 argument -- take a look at the documentation
-`here <http://www.jspsych.org/overview/callbacks/#on_finish-trial>`_ .
+`here <http://www.jspsych.org/6.3/overview/callbacks/#on_finish-trial>`_ .
 
 **Hint:** to get the response out of the ``survey-text`` trial, use
 

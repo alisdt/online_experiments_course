@@ -42,7 +42,7 @@ server.
 First experiment
 ----------------
 
-Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
+Let's take a look at the `jsPsych website <http://www.jspsych.org/6.3/>`_.
 
 We're going to follow the first tutorial. On the left of the page, click on
 "Tutorials" and then "The Basics: Hello World".
@@ -188,7 +188,7 @@ These types allow you to do different things like:
 
 and many others.
 
-Go back to `the jsPsych website <http://www.jspsych.org/>`_ and click on "Plugins".
+Go back to `the jsPsych website <http://www.jspsych.org/6.3/>`_ and click on "Plugins".
 
 The node above has the type ``html-keyboard-response``. The corresponding plugin
 is ``jspsych-html-keyboard-response``. Find this in the response and click on it.
