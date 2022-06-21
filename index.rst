@@ -3,8 +3,9 @@ Online Experiments with jsPsych
 
 Welcome to Online Experiments!
 
-<mark>This course is being updated to use jsPsych 7.1!<br>
-Currently, materials up to and including section 02 are up to date.</mark>
+This course is being updated to use jsPsych 7.2!
+
+Currently, materials up to and including section 03 are up to date.
 
 Please start with section 00, "About this course".
 

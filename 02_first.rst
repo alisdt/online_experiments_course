@@ -46,7 +46,7 @@ Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
 
 We're going to follow the first tutorial. The tutorial offers you some
 options on how to install jsPsych. `Here's the link to go straight to our
-preferred option <https://www.jspsych.org/7.1/tutorials/hello-world/#option-2-download-and-host-jspsych>`_.
+preferred option <https://www.jspsych.org/7.2/tutorials/hello-world/#option-2-download-and-host-jspsych>`_.
 Follow steps 1-7 at this link.
 
 This first example only uses the web browser, it doesn't send any information
@@ -224,9 +224,9 @@ You'll have to:
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
 3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
-   file (see
-   `step 6 of the tutorial <https://www.jspsych.org/7.1/tutorials/hello-world/#step-6-use-a-plugin-to-print-a-message>`_).
-4. Give jsPsych the name of the image -- check the documentation to see how.
+   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.2/plugins/image-keyboard-response/#install>`_
+   for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
+4. Give jsPsych the name of the image -- check the plugin documentation to see how.
 5. Upload your code again once you've made these changes.
 
 A couple of things about files on the server:

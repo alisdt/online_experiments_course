@@ -8,24 +8,7 @@ This code uses ``plugin-image-keyboard-response``, so make sure it's included in
 
 .. code:: javascript
 
-  const jsPsych = initJsPsych({
-      on_finish: function() {
-          jsPsych.data.displayData();
-      }
-  });
-
-  const trial1 = {
-      type: jsPsychImageKeyboardResponse,
-      prompt: '<p>Press a key!</p>',
-      stimulus: 'Cat1.jpg'
-  };
-  const trial2 = {
-      type: jsPsychImageKeyboardResponse,
-      prompt: '<p>Press a key!</p>',
-      stimulus: 'Cat2.jpg'
-  };
-
-  jsPsych.run([trial1, trial2]);
+{{ s04_multi_image_experiment_js }}
 
 As before the images you use will need to be in the folder alongside your code.
 

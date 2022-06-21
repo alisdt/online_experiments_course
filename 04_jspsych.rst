@@ -103,7 +103,7 @@ They look something like this:
         {
             "rt": 1239,
             "stimulus": "Dog1.jpg",
-            "key_press": " ",
+            "response": " ",
             "trial_type": "image-keyboard-response",
             "trial_index": 0,
             "time_elapsed": 1241,
@@ -114,12 +114,12 @@ They look something like this:
 We'll go through this in more detail later on, but you can already see
 a couple of familiar features there. Firstly, the information in the node
 (the type and stimulus) are there. Secondly, the reaction time (``rt``) is
-there. Finally, ``key_press`` tells you what key was pressed. In this case it's
+there. Finally, ``response`` tells you what key was pressed. In this case it's
 the space bar. Here the Space bar has been pressed, in the output:
 
 .. code::
 
-            "key_press": " ",
+            "response": " ",
 
 there's a space between the second pair of quotes.
 
@@ -129,6 +129,46 @@ Before you move on ....
 If your code still isn't working, you could compare with
 :ref:`this example code <multipleimagessimple04>`. (If your code does what
 it needs to, don't worry!)
+
+Timeline variables
+------------------
+
+Writing jsPsych nodes out like this is fine when we only have two, but experiments can have tens or even hundreds of trials. Fortunately jsPsych gives us a way to loop through different values for things like ``stimulus``, called "timeline variables".
+
+Make a copy of your code—the easiest way to do this is to just copy your whole experiment folder.
+
+We'll start by just varying the ``stimulus``. At the start of your code, just after ``initJsPsych(...);``, write the names of your images in a list of objects like this:
+
+.. code:: javascript
+
+    const variables = [
+        { image: "image1.jpg" },
+        { image: "image2.jpg" }
+    ];
+
+Make sure that the image filenames match the ones in your code. Now, using one of your image nodes as a template, replace the value for ``stimulus`` with ``jsPsych.timelineVariable("image")``. So it should look a bit like this:
+
+.. code:: javascript
+
+    const trial = {
+        type: jsPsychImageKeyboardResponse,
+        stimulus: jsPsych.timelineVariable("image")
+    }
+
+You can delete your other trial. Now all that's needed is to connect this to the list of values above:
+
+.. code:: javascript
+
+    const trials_with_variables = {
+        timeline: [trial],
+        timeline_variables: variables
+    };
+
+Then change ``jsPsych.run`` to run this:
+
+.. code:: javascript
+
+    jsPsych.run([trials_with_variables]);
 
 Repetition
 ----------
@@ -181,7 +221,7 @@ for the first experiment and replace ``hello`` with ``factorial``.
 Let's create a factorial design over a set of images and a set of stimulus durations.
 
 Look at the
-`documentation for the image-keyboard-response plugin <http://www.jspsych.org/plugins/jspsych-image-keyboard-response/>`_.
+`documentation for the image-keyboard-response plugin <https://www.jspsych.org/7.2/plugins/image-keyboard-response/>`_.
 There is a ``stimulus_duration`` parameter which controls the duration of the stimulus.
 
 So, we can make a full-factorial design with:
@@ -193,7 +233,8 @@ So, we can make a full-factorial design with:
         stimulus_duration: [400, 800, 1200]
     };
 
-Start off by deleting the contents of ``experiment.js`` in your new folder, and add this code.
+Start off by deleting the contents of ``experiment.js`` (except ``initJsPsych(...)``!) in your new folder, and add the code above.
+
 Now add:
 
 .. code:: javascript
@@ -210,10 +251,6 @@ very least they need a ``type``. Usually there's also a ``prompt`` parameter, gi
 explanatory text telling the participant what they need to do. We can use timeline variables to
 use the ``stimulus`` and ``stimulus_duration`` values that we generated.
 
-Timeline variables
-------------------
-
-You can think of timeline variables like a table that jsPsych reads from to generate a set of repetitions.
 As a table, ``factorial_values`` would look like this:
 
 ======== =================
