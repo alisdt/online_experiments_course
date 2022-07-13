@@ -225,9 +225,9 @@ You'll have to:
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
 3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
-   file (see
-   `step 4 of the tutorial <https://www.jspsych.org/7.2/tutorials/hello-world/#step-4-use-a-plugin-to-print-a-message>`_).
-4. Give jsPsych the name of the image -- check the documentation to see how.
+   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.2/plugins/image-keyboard-response/#install>`_
+   for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
+4. Give jsPsych the name of the image -- check the plugin documentation to see how.
 5. Upload your code again once you've made these changes.
 
 A couple of things about files on the server:

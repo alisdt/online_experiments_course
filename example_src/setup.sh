@@ -10,18 +10,19 @@ do
   cp save_data.php ${example};
 done
 
-rm -r dist jspsych jspsych.zip
-wget https://www.github.com/jspsych/jspsych/releases/latest/download/jspsych.zip
-unzip -o jspsych.zip dist/*
-mv dist jspsych
-for example in s02 s04 repetition s05 datasaving factorial_with_fixation factorial linebyline debugging;
-do
-  ln -s ../jspsych ${example}/jspsych;
-done
+# Don't need this any more, switch to CDN
+# rm -r dist jspsych jspsych.zip
+# wget https://www.github.com/jspsych/jspsych/releases/latest/download/jspsych.zip
+# unzip -o jspsych.zip dist/*
+# mv dist jspsych
+# for example in s02 s04 repetition s05 datasaving factorial_with_fixation factorial linebyline debugging;
+# do
+#   ln -s ../jspsych ${example}/jspsych;
+# done
 
 wget https://softdev.ppls.ed.ac.uk/online_experiments/images.zip
 unzip -o images.zip
-for example in repetition datasaving factorial_with_fixation factorial linebyline;
+for example in s04_multi_image repetition datasaving factorial_with_fixation factorial linebyline;
 do
   cp images/* ${example};
 done
