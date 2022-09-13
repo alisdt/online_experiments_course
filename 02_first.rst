@@ -46,7 +46,8 @@ Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
 
 We're going to follow the first tutorial. The tutorial offers you some
 options on how to install jsPsych. `Here's the link to go straight to our
-preferred option <https://www.jspsych.org/7.2/tutorials/hello-world/#option-2-download-and-host-jspsych>`_.
+preferred option <https://www.jspsych.org/7.2/tutorials/hello-world/#option-1-using-cdn-hosted-scripts>`_.
+
 Follow steps 1-7 at this link.
 
 This first example only uses the web browser, it doesn't send any information
@@ -55,7 +56,7 @@ same experiment, with the files on the server.
 
 Here are some extra notes; keep these handy while you follow the tutorial.
 
-**Step 3**
+**Step 1**
     To create your file, in your text editor use "Save As ....".
     Go to the folder where you unpacked jsPsych, and give the filename ``experiment.html``.
 
@@ -63,7 +64,7 @@ Here are some extra notes; keep these handy while you follow the tutorial.
     If that doesn't work, right-click on it, choose "Open with ...." and
     choose a web browser.
 
-**Step 7**
+**Step 5**
     If you already have the file open in the web browser, you just
     need to reload it. If that doesn't work you may need to "hard reload".
     How you do this depends on your browser:
