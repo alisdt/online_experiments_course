@@ -19,14 +19,18 @@ Then click on "Editor" at the top. You should see this:
 .. image:: images/choose_editor_1.png
   :width: 90%
 
-In the dropdown menu, choose your text editor. If you don't already have
-a programmers' editor, I suggest `Visual Studio Code <https://code.visualstudio.com/Download>`_ .
-Check the box "Always use this application".
+In the dropdown menu, choose your text editor. If you followed my suggestion at the
+start, this will be Visual Studio Code. Check the box "Always use this application".
+
 
 If your text editor is not there,
 you'll need to select "Choose ...." and find it. (You only
 need to do this if it's not there -- if your chosen text editor
 was in the list, you've finished).
+
+----
+
+Only follow this next bit if you couldn't find your code editor in the drop-down menu!
 
 Visual Studio Code can be quite difficult to find on
 Windows as it's in a hidden folder. Go to the folder
@@ -51,6 +55,8 @@ and choose the file called "Code":
 
 .. image:: images/choose_editor_2.png
   :width: 90%
+
+----
 
 Once this is set up (with whichever editor you use) you can edit a file
 directly by selecting it and clicking on the "Edit" button in the toolbar.
@@ -88,7 +94,7 @@ Click on the tab marked "Console". This contains messages from your web browser.
 Most useful are the errors! Open your `experiment.html` file and break the code.
 
     Yes, I'm actually telling you to break the code! The easiest way is to delete
-    a bracket -- ``(``, ``[`` or ``{``, as if these are not in matching pairs that will cause an
+    a bracket -- ``(``, ``[`` or ``{``. If these are not in matching pairs that will cause an
     error.
 
 Now reload the page. You should see something like this:
@@ -99,9 +105,11 @@ Now reload the page. You should see something like this:
 There's an error reported in the console, in red. This will give you a clue as
 to where the problem is! You can click on the links on the right which will show
 you the relevant parts of the code. While error messages can be a little cryptic,
-there's usually something which will help, like "missing }".
+there's usually something which will help, like "missing }". At the end of the line
+with the error you'll see something like "experiment.html:18:29". This means that
+the error was noticed on line 18, at the 29th character. Sometimes 
 
-Now fix your experiment!
+Now fix your experiment and reload the page again -- the error should disappear!
 
 The debugger
 ............
@@ -117,7 +125,7 @@ on the line:
 
 .. code:: javascript
 
-    jsPsych.init({
+    jsPsych.run([hello_trial]);
 
 Now reload the page. The program has stopped on that line. The point that you chose
 by clicking in the margin is called a **breakpoint**.
@@ -125,8 +133,7 @@ by clicking in the margin is called a **breakpoint**.
 .. image:: images/debugger_stopped.png
   :width: 90%
 
-On the right there's a sidebar called "Scopes". (This has other names in other browsers,
-but there should be a list of names and values somewhere). Here you'll be able to see what
+On the right there's a sidebar called "Scopes" or "Scope". Here you'll be able to see what
 value different variables have. Some of these are built in to the browser, or part of the
 internal workings of jsPsych -- don't worry about these for now.
 

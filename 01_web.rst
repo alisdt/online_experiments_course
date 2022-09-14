@@ -59,7 +59,7 @@ For example:
 
     <title>About the Web</title>
 
-This sets the text that appears in the title bar of your browser window.
+This sets the text that appears in the tab for the web page.
 
 To give another example, a
 `link to this page <https://softdev.ppls.ed.ac.uk/online_experiments/01_web.html>`_

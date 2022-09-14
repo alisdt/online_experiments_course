@@ -3,16 +3,16 @@ Online Experiments with jsPsych
 
 Welcome to Online Experiments!
 
-This course is being updated to use jsPsych 7.2!
+This course is being updated to use jsPsych 7.3.
 
 Currently, materials up to and including section 03 are up to date.
 
-Please start with section 00, "About this course".
+Please start with the first section, "Introduction".
 
 .. toctree::
    :maxdepth: 2
 
-   00 About this course <00_about>
+   00 Introduction <00_about>
    01 About the Web <01_web>
    02 An introduction to jsPsych <02_first>
    03 Developer tools and editing <03_pract>

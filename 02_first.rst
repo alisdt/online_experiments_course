@@ -15,6 +15,7 @@ applies here.
 
 .. image:: images/jspsych_how_1.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client)" and a box on the right labelled "Server". An arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser".
 
 |
 
@@ -26,6 +27,7 @@ example to load images).
 
 .. image:: images/jspsych_how_2.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client) 2. Experiment runs ...." and a box on the right labelled "Server". A greyed-out arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser".
 
 |
 
@@ -36,6 +38,7 @@ server.
 
 .. image:: images/jspsych_how_3.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client)" and greyed out " 2. Experiment runs ....", and a box on the right labelled "Server". A greyed-out arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser". Another arrow connects the two, left to right, labelled "3. Send results to server"
 
 |
 
@@ -46,7 +49,7 @@ Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
 
 We're going to follow the first tutorial. The tutorial offers you some
 options on how to install jsPsych. `Here's the link to go straight to our
-preferred option <https://www.jspsych.org/7.2/tutorials/hello-world/#option-1-using-cdn-hosted-scripts>`_.
+preferred option <https://www.jspsych.org/7.3/tutorials/hello-world/#option-1-using-cdn-hosted-scripts>`_.
 
 Follow steps 1-7 at this link.
 
@@ -57,7 +60,7 @@ same experiment, with the files on the server.
 Here are some extra notes; keep these handy while you follow the tutorial.
 
 **Step 1**
-    To create your file, in your text editor use "Save As ....".
+    To create your file, in your text editor use "File → Save As ....".
     Go to the folder where you unpacked jsPsych, and give the filename ``experiment.html``.
 
     To open ``experiment.html``, try double-clicking on it.
@@ -88,15 +91,8 @@ Uploading your experiment
 You should have an account on the experiment server, ``{{ teaching_server_fqdn }}``.
 If not, please ask one of the tutors.
 
-To upload the experiment you'll need some file transfer software. You're welcome to
-use whatever you feel most comfortable with. For Windows or Mac, I recommend
-the free and open source program CyberDuck:
-
-| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-8.2.1.36773.exe>`_
-| `Mac link <https://update.cyberduck.io/Cyberduck-8.2.1.36773.zip>`_
-
-For Linux, it will depend on your distribution. In most Linux distributions you can
-connect directly in the file browser, or use the ``scp`` command.
+These instructions use CyberDuck to upload files, as suggested in the Introduction, but if
+you have another program that you know how to use that's fine.
 
 Connect
 .......
@@ -132,7 +128,7 @@ and ``server_data``.
 
 Finally, you can make things more convenient for next time by selecting:
 
-Bookmarks → New bookmark
+Bookmark → New bookmark
 
 in the CyberDuck menu. This will save these connection settings so you don't have to type
 them in again.
@@ -225,7 +221,7 @@ You'll have to:
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
 3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
-   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.2/plugins/image-keyboard-response/#install>`_
+   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.3/plugins/image-keyboard-response/#install>`_
    for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
 4. Give jsPsych the name of the image -- check the plugin documentation to see how.
 5. Upload your code again once you've made these changes.

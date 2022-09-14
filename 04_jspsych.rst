@@ -1,7 +1,7 @@
 The structure of a jsPsych experiment
 =====================================
 
-As you know, a jsPsych experiment is a series of nodes.
+A jsPsych experiment is a series of nodes.
 Usually one node corresponds to one presentation to the
 participant. So far in our test experiment, we've only
 got one node which says hello (or shows an image, if you
@@ -85,7 +85,7 @@ of the code to:
 .. code:: javascript
 
 
-    const jsPsych = initJsPsych({
+    var jsPsych = initJsPsych({
         on_finish: function() {
             jsPsych.data.displayData();
         }
@@ -141,7 +141,7 @@ We'll start by just varying the ``stimulus``. At the start of your code, just af
 
 .. code:: javascript
 
-    const variables = [
+    var variables = [
         { image: "image1.jpg" },
         { image: "image2.jpg" }
     ];
@@ -150,7 +150,7 @@ Make sure that the image filenames match the ones in your code. Now, using one o
 
 .. code:: javascript
 
-    const trial = {
+    var trial = {
         type: jsPsychImageKeyboardResponse,
         stimulus: jsPsych.timelineVariable("image")
     }
@@ -159,7 +159,7 @@ You can delete your other trial. Now all that's needed is to connect this to the
 
 .. code:: javascript
 
-    const trials_with_variables = {
+    var trials_with_variables = {
         timeline: [trial],
         timeline_variables: variables
     };
@@ -175,7 +175,7 @@ Repetition
 
 What if you want to repeat a set of trials several times? jsPsych allows
 you to do this without having to type out all the repetitions. After your
-node definitions (``const hello_trial = { ....``) add a line:
+node definitions (``var hello_trial = { ....``) add a line:
 
 .. code:: javascript
 
@@ -187,7 +187,7 @@ This puts your two nodes into a list, called ``trials``. Now add a line:
 
 .. code:: javascript
 
-    const repeated_trials = jsPsych.randomization.repeat(trials,5);
+    var repeated_trials = jsPsych.randomization.repeat(trials,5);
 
 This repeats the list ``trials`` five times, randomises it, and puts the
 result in a new list called ``repeated_trials``.
@@ -221,7 +221,7 @@ for the first experiment and replace ``hello`` with ``factorial``.
 Let's create a factorial design over a set of images and a set of stimulus durations.
 
 Look at the
-`documentation for the image-keyboard-response plugin <https://www.jspsych.org/7.2/plugins/image-keyboard-response/>`_.
+`documentation for the image-keyboard-response plugin <https://www.jspsych.org/7.3/plugins/image-keyboard-response/>`_.
 There is a ``stimulus_duration`` parameter which controls the duration of the stimulus.
 
 So, we can make a full-factorial design with:
@@ -317,7 +317,7 @@ This should go in the main timeline (in jsPsych.init).
 
 You can use the ``html-keyboard-response`` plugin, which you saw in the "Hello World!"
 example right at the start, or you can use the ``instructions`` plugin
-(`documented here <https://www.jspsych.org/plugins/jspsych-instructions/>`_). Remember that
+(`documented here <https://www.jspsych.org/7.3/plugins/jspsych-instructions/>`_). Remember that
 when you add a plugin to an experiment, there must be a corresponding ``<script src="...."></script>``
 in ``experiment.html``.
 
