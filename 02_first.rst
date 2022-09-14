@@ -167,7 +167,7 @@ and then collect a response. In the tutorial you saw the example:
 
 .. code-block:: javascript
 
-    const hello_trial = {
+    var hello_trial = {
         type: jsPsychHtmlKeyboardResponse,
         stimulus: 'Hello world!'
     }

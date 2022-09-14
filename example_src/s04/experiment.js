@@ -1,6 +1,6 @@
-const jsPsych = initJsPsych();
+var jsPsych = initJsPsych();
 
-const trial = {
+var trial = {
     type: jsPsychImageKeyboardResponse,
     stimulus: 'nasa_proxima.png'
 };
