@@ -51,8 +51,6 @@ We're going to follow the first tutorial. The tutorial offers you some
 options on how to install jsPsych. `Here's the link to go straight to our
 preferred option <https://www.jspsych.org/7.3/tutorials/hello-world/#option-1-using-cdn-hosted-scripts>`_.
 
-Follow steps 1-7 at this link.
-
 This first example only uses the web browser, it doesn't send any information
 back to the server. Once you've got it working, I'll show you how to run the
 same experiment, with the files on the server.
@@ -108,11 +106,13 @@ This window will appear:
 .. image:: images/connection.png
 
 Select "SFTP" from the dropdown menu at the top.
-Fill in your UUN and the password you were given for your account.
 
 Under "Server" give the value:
 
 ``{{ teaching_server_fqdn }}``
+
+Fill in your UUN (University username, e.g. something like s1234567 for
+a student) as your username and the password you were given for your account.
 
 Click on Connect.
 
@@ -145,7 +145,7 @@ Call your new folder ``hello``. (You can use another name if you like, but it's 
 to use a name without any spaces -- if you want to use multiple words, separate them with
 the underscore character, ``_``). Click Create.
 
-Now drag your experiment file, ``experiment.html``, and the jspsych folder, over into your
+Now drag your experiment file, ``experiment.html``, over into your
 new folder.
 
 .. image:: images/copy_files.png
@@ -187,7 +187,8 @@ and many others.
 Go back to `the jsPsych website <http://www.jspsych.org/>`_ and click on "Plugins".
 
 The node above has the type ``jsPsychHtmlKeyboardResponse``. The corresponding plugin
-is ``html-keyboard-response``. Find this in the menu under "Plugins" and click on it.
+is ``html-keyboard-response``. Find this in the menu under "Plugins" on the jsPsych website,
+and click on it.
 
 Each kind of node can be set up using different parameters. The name of each parameter is
 the thing before the colon : in the code above. For example:
@@ -254,4 +255,4 @@ doi:10.3758/s13428-014-0458-y
 
 .. rubric:: Footnotes
 
-.. [#dirs] On some computers, these are also called "directories".
+.. [#dirs] These are also called "directories".

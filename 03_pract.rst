@@ -22,41 +22,11 @@ Then click on "Editor" at the top. You should see this:
 In the dropdown menu, choose your text editor. If you followed my suggestion at the
 start, this will be Visual Studio Code. Check the box "Always use this application".
 
-
 If your text editor is not there,
-you'll need to select "Choose ...." and find it. (You only
+you'll need to select "Choose ...." and find it. You may find 
+`this note on finding Visual Studio Code <editor_hunt>`_ useful. (You only
 need to do this if it's not there -- if your chosen text editor
 was in the list, you've finished).
-
-----
-
-Only follow this next bit if you couldn't find your code editor in the drop-down menu!
-
-Visual Studio Code can be quite difficult to find on
-Windows as it's in a hidden folder. Go to the folder
-
-    C:\\Users\\<your username>\\
-
-Here the username is the one that you see when you log in to your PC, *not* the
-one on the server.
-
-Then after the file location type "AppData", so it reads:
-
-    C:\\Users\\<your username>\\AppData
-
-The folder is there, but you won't be able to see or click on it unless you've
-already told Windows to show you hidden files.
-
-Now go into the "Local" folder and inside that "Programs" and "Microsoft VS Code":
-
-    C:\\Users\\<your username>\\AppData\\Local\\Programs\\Microsoft VS Code
-
-and choose the file called "Code":
-
-.. image:: images/choose_editor_2.png
-  :width: 90%
-
-----
 
 Once this is set up (with whichever editor you use) you can edit a file
 directly by selecting it and clicking on the "Edit" button in the toolbar.
@@ -67,8 +37,8 @@ directly by selecting it and clicking on the "Edit" button in the toolbar.
 Developer Tools
 ---------------
 
-When writing any computer program, it's always good to have
-some tools to help you find out what's going on. This is
+When writing a computer program, it's good to have
+tools to help you find out what's going on. This is
 particularly important when something goes wrong! For an
 online experiment in JavaScript, you can use the
 web developer tools in your browser. All recent versions of

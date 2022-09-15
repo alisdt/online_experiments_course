@@ -39,6 +39,7 @@ Please start with the first section, "Introduction".
    D3 Stroop example using timeline variables <example_code/stroop_timeline_variables>
    D4 Stroop example using a loop <example_code/stroop_loop>
    D5 Stroop example using functions <example_code/stroop_functions>
+   E1 Code editor hunt <editor_hunt>
 
 * :ref:`search`
 
