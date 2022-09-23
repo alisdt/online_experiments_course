@@ -10,11 +10,9 @@ var trial = {
     stimulus: jsPsych.timelineVariable("image")
 };
 
-var repeated_variables = jsPsych.randomization.repeat(variables, 5);
-
 var trials_with_variables = {
     timeline: [trial],
-    timeline_variables: repeated_variables
+    timeline_variables: variables
 };
 
 jsPsych.run([trials_with_variables]);

@@ -25,8 +25,8 @@ In ``experiment.js``:
     });
 
     var factors = {
-        stimulus: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
-        stimulus_duration: [400, 800, 1200]
+        image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
+        duration: [400, 800, 1200]
     };
 
     var factorial_values = jsPsych.randomization.factorial(factors);
@@ -34,8 +34,8 @@ In ``experiment.js``:
     var trial = {
         type: 'image-keyboard-response',
         prompt: '<p>Press a key!</p>',
-        stimulus: jsPsych.timelineVariable('stimulus'),
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration')
+        stimulus: jsPsych.timelineVariable('image'),
+        trial_duration: jsPsych.timelineVariable('duration')
     };
 
     var trials_with_variables = {

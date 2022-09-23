@@ -1,6 +1,6 @@
 var factors = {
-    stimulus: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
-    stimulus_duration: [400, 800, 1200],
+    image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
+    duration: [400, 800, 1200],
     fixation_duration: [500, 1000, 1500]
 };
 
@@ -24,11 +24,11 @@ var fixation = {
 var trial = {
     type: 'image-keyboard-response',
     prompt: '<p>Press a key!</p>',
-    stimulus: jsPsych.timelineVariable('stimulus'),
-    stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+    stimulus: jsPsych.timelineVariable('image'),
+    trial_duration: jsPsych.timelineVariable('duration'),
     data: {
         type: 'trial',
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+        trial_duration: jsPsych.timelineVariable('duration'),
         fixation_duration: jsPsych.timelineVariable('fixation_duration')
     }
 };
@@ -59,7 +59,7 @@ function saveDataLine(data) {
     }
     // choose the data we want to save
     var data_to_save = [
-        data.type, data.stimulus, data.stimulus_duration, data.fixation_duration, data.rt
+        data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
     ];
     // join these with commas and add a newline
     var line = data_to_save.join(',')+"\n";

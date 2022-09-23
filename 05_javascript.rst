@@ -522,20 +522,20 @@ if others will need to read it.
 For example, let's look at the start of the table of values (to use with timeline variables)
 that we saw in the last section:
 
-======== =================
-stimulus stimulus_duration
-======== =================
+======== ========
+image    duration
+======== ========
 Dog2.jpg 400
 Dog1.jpg 1200
 Dog1.jpg 800
 Dog3.jpg 800
-======== =================
+======== ========
 
 In JavaScript we could represent this as:
 
 .. code:: javascript
 
-    var timeline_values = [{stimulus:"Dog2.jpg",stimulus_duration:400},{stimulus:"Dog1.jpg",stimulus_duration:1200},{stimulus:"Dog1.jpg",stimulus_duration:800},{stimulus:"Dog3.jpg",stimulus_duration:800}];
+    var timeline_values = [{image:"Dog2.jpg",duration:400},{image:"Dog1.jpg",duration:1200},{image:"Dog1.jpg",duration:800},{image:"Dog3.jpg",duration:800}];
 
 Hopefully it's obvious that this is a bad idea, the line is far too long!
 JavaScript is happy to break lines anywhere, as long as it isn't in the middle
@@ -546,10 +546,10 @@ of the items in the array a line to itself:
 .. code:: javascript
 
     var timeline_values = [
-        {stimulus:"Dog2.jpg",stimulus_duration:400},
-        {stimulus:"Dog1.jpg",stimulus_duration:1200},
-        {stimulus:"Dog1.jpg",stimulus_duration:800},
-        {stimulus:"Dog3.jpg",stimulus_duration:800}];
+        {image:"Dog2.jpg",duration:400},
+        {image:"Dog1.jpg",duration:1200},
+        {image:"Dog1.jpg",duration:800},
+        {image:"Dog3.jpg",duration:800}];
 
 The last square bracket would be easy to miss when reading the code, though!
 Putting it on the next line makes it easier to spot:
@@ -557,10 +557,10 @@ Putting it on the next line makes it easier to spot:
 .. code:: javascript
 
     var timeline_values = [
-        {stimulus:"Dog2.jpg",stimulus_duration:400},
-        {stimulus:"Dog1.jpg",stimulus_duration:1200},
-        {stimulus:"Dog1.jpg",stimulus_duration:800},
-        {stimulus:"Dog3.jpg",stimulus_duration:800}
+        {image:"Dog2.jpg",duration:400},
+        {image:"Dog1.jpg",duration:1200},
+        {image:"Dog1.jpg",duration:800},
+        {image:"Dog3.jpg",duration:800}
     ];
 
 We can also insert some spaces, to make the code even more readable:
@@ -568,10 +568,10 @@ We can also insert some spaces, to make the code even more readable:
 .. code:: javascript
 
     var timeline_values = [
-        { stimulus: "Dog2.jpg", stimulus_duration: 400 },
-        { stimulus: "Dog1.jpg", stimulus_duration: 1200 },
-        { stimulus: "Dog1.jpg", stimulus_duration: 800 },
-        { stimulus: "Dog3.jpg", stimulus_duration: 800 }
+        { image: "Dog2.jpg", duration: 400 },
+        { image: "Dog1.jpg", duration: 1200 },
+        { image: "Dog1.jpg", duration: 800 },
+        { image: "Dog3.jpg", duration: 800 }
     ];
 
 You can imagine that if there were more values in each of these objects,
@@ -583,20 +583,20 @@ it would look something like:
 
     var timeline_values = [
         {
-            stimulus: "Dog2.jpg", 
-            stimulus_duration: 400
+            image: "Dog2.jpg", 
+            duration: 400
         },
         {
-            stimulus: "Dog1.jpg",
-            stimulus_duration: 1200
+            image: "Dog1.jpg",
+            duration: 1200
         },
         {
-            stimulus: "Dog1.jpg",
-            stimulus_duration: 800
+            image: "Dog1.jpg",
+            duration: 800
         },
         {
-            stimulus: "Dog3.jpg",
-            stimulus_duration: 800
+            image: "Dog3.jpg",
+            duration: 800
         }
     ];
 

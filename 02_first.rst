@@ -59,7 +59,7 @@ Here are some extra notes; keep these handy while you follow the tutorial.
 
 **Step 1**
     To create your file, in your text editor use "File → Save As ....".
-    Go to the folder where you unpacked jsPsych, and give the filename ``experiment.html``.
+    Choose a folder to work in and give the filename ``experiment.html``.
 
     To open ``experiment.html``, try double-clicking on it.
     If that doesn't work, right-click on it, choose "Open with ...." and

@@ -59,7 +59,7 @@ end of the code to:
 
 .. code:: javascript
 
-    jsPsych.run([hello_trial, image2_trial]);
+    jsPsych.run([trial, image2_trial]);
 
 Your code might not look exactly like this -- the two names between the
 ``[]`` should match the names you used earlier in the code.
@@ -142,11 +142,12 @@ We'll start by just varying the ``stimulus``. At the start of your code, just af
 .. code:: javascript
 
     var variables = [
-        { image: "image1.jpg" },
-        { image: "image2.jpg" }
+        { image: "Dog1.jpg" },
+        { image: "Dog2.jpg" }
     ];
 
-Make sure that the image filenames match the ones in your code. Now, using one of your image nodes as a template, replace the value for ``stimulus`` with ``jsPsych.timelineVariable("image")``. So it should look a bit like this:
+Make sure that the image filenames match the image filenames on the server.
+Now, using one of your image nodes as a template, replace the value for ``stimulus`` with ``jsPsych.timelineVariable("image")``. So it should look a bit like this:
 
 .. code:: javascript
 
@@ -170,40 +171,49 @@ Then change ``jsPsych.run`` to run this:
 
     jsPsych.run([trials_with_variables]);
 
+This approach makes it much easier to add new trials, e.g.
+
+.. code:: javascript
+
+    var variables = [
+        { image: "Dog1.jpg" },
+        { image: "Dog2.jpg" },
+        { image: "Cat1.jpg" },
+        { image: "Cat2.jpg" }
+    ];
+
+This adds two new trials with only two more lines of code!
+
 Repetition
 ----------
 
 What if you want to repeat a set of trials several times? jsPsych allows
 you to do this without having to type out all the repetitions. After your
-node definitions (``var hello_trial = { ....``) add a line:
+timeline variable definitions (``var variables = { ....``) add a line:
 
 .. code:: javascript
 
-    var trials = [hello_trial, image2_trial];
+    var repeated_variables = jsPsych.randomization.repeat(variables, 5);
 
-Again, if you gave the two nodes different names, use those names instead.
+This repeats the list ``variables`` five times, randomises it, and puts the
+result in a new list called ``repeated_variables``.
 
-This puts your two nodes into a list, called ``trials``. Now add a line:
-
-.. code:: javascript
-
-    var repeated_trials = jsPsych.randomization.repeat(trials,5);
-
-This repeats the list ``trials`` five times, randomises it, and puts the
-result in a new list called ``repeated_trials``.
-
-Finally, we use this new list as our timeline. Change the ``jsPsych.run``
-call to this:
+Change your timeline node (`var trials_with_variables = { ....`) to use this:
 
 .. code:: javascript
 
-    jsPsych.run([repeated_trials]);
+    var trials_with_variables = {
+        timeline: [trial],
+        timeline_variables: repeated_variables
+    };
 
 Now reload and run your experiment again. You should see ten trials in total,
 with five of each image.
 
 Once you've finished, your code should look like :ref:`this <repetition>`. (Don't look at
 this until you've taken a look at the console errors and tried to fix it, though!)
+
+This example uses timeline variables, but you can also give the `jsPsych.randomization.repeat(...)` function a list of nodes, and it will randomise and repeat them in the same way.
 
 Factorial design
 ----------------
@@ -218,26 +228,22 @@ new folder ``factorial``.
 This means that your new experiment will appear in a different place. Take the link
 for the first experiment and replace ``hello`` with ``factorial``.
 
-Let's create a factorial design over a set of images and a set of stimulus durations.
+Let's create a factorial design over a set of images and a set of trial durations. (In a real experiment we'd use this to give the participant a limited amount of time to respond).
 
 Look at the
 `documentation for the image-keyboard-response plugin <https://www.jspsych.org/7.3/plugins/image-keyboard-response/>`_.
-There is a ``stimulus_duration`` parameter which controls the duration of the stimulus.
+There is a ``trial_duration`` parameter which controls the duration of the trial.
 
-So, we can make a full-factorial design with:
+Start off by editing the copy of ``experiment.js`` in your new folder.
+
+Delete everything except ``initJsPsych(...)`` and add:
 
 .. code:: javascript
 
     var factors = {
-        stimulus: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
-        stimulus_duration: [400, 800, 1200]
+        image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
+        duration: [400, 800, 1200]
     };
-
-Start off by deleting the contents of ``experiment.js`` (except ``initJsPsych(...)``!) in your new folder, and add the code above.
-
-Now add:
-
-.. code:: javascript
 
     var factorial_values = jsPsych.randomization.factorial(factors);
     console.log(JSON.stringify(factorial_values));
@@ -249,31 +255,29 @@ You can see that it's generated all possible combinations of stimulus and durati
 These are not fully-formed jsPsych nodes though, as they need some extra information. At the
 very least they need a ``type``. Usually there's also a ``prompt`` parameter, giving some
 explanatory text telling the participant what they need to do. We can use timeline variables to
-use the ``stimulus`` and ``stimulus_duration`` values that we generated.
+use the ``stimulus`` and ``duration`` values that we generated.
 
 As a table, ``factorial_values`` would look like this:
 
-======== =================
-stimulus stimulus_duration
-======== =================
+======== ========
+stimulus duration
+======== ========
 Dog2.jpg 400
 Dog1.jpg 1200
 Dog1.jpg 800
 Dog3.jpg 800
 etc.     etc.
-======== =================
+======== ========
 
-Let's write a node which uses these variables. Instead of giving numbers or text
-for ``stimulus`` and ``stimulus_duration``, we'll use jsPsych timeline variables,
-which will substitute values from the table.
+Let's write a node which uses these variables.
 
 .. code:: javascript
 
     var trial = {
-        type: 'image-keyboard-response',
+        type: jsPsychImageKeyboardResponse,
         prompt: '<p>Press a key!</p>',
-        stimulus: jsPsych.timelineVariable('stimulus'),
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration')
+        stimulus: jsPsych.timelineVariable('image'),
+        trial_duration: jsPsych.timelineVariable('duration')
     };
 
 Now we can link the table up to this using the ``timeline_variables`` property:
@@ -285,27 +289,20 @@ Now we can link the table up to this using the ``timeline_variables`` property:
         timeline_variables: factorial_values
     };
 
-This bit says to jsPsych, "please use the node ``trial``, and use ``factorial_values``
+Just a reminder, as in the previous experiment this bit says to jsPsych, "please use a timeline with just the node ``trial``, and use ``factorial_values``
 to supply the values".
 
-Finally, as before, we must use ``jsPsych.init`` to start the experiment:
+Finally, as before, we must use ``jsPsych.run`` to start the experiment:
 
 .. code:: javascript
 
-    jsPsych.init({
-        timeline: [trials_with_variables],
-        on_finish: function() {
-            jsPsych.data.displayData();
-        }
-    });
+    jsPsych.run([trials_with_variables]);
 
 Once you've finished the code should look like :ref:`this <factorial>`. As before,
 try your best to finish this on your own first, solving any problems by asking for help,
 looking at the code, or using Developer Tools.
 
-Here's
-:ref:`an example of working code with timeline variables and factorial design <factorial>`
-for you to compare with your own code. As always, things like variable names and
+As always, things like variable names and
 filenames can be different, and don't worry about differences with the example
 if your code is working well.
 
@@ -313,11 +310,11 @@ Exercise: Instructions
 ----------------------
 
 Add a node to the start of the experiment which shows some instructions.
-This should go in the main timeline (in jsPsych.init).
+This should go in the main timeline (in jsPsych.run).
 
 You can use the ``html-keyboard-response`` plugin, which you saw in the "Hello World!"
 example right at the start, or you can use the ``instructions`` plugin
-(`documented here <https://www.jspsych.org/7.3/plugins/jspsych-instructions/>`_). Remember that
+(`documented here <https://www.jspsych.org/7.3/plugins/instructions/>`_). Remember that
 when you add a plugin to an experiment, there must be a corresponding ``<script src="...."></script>``
 in ``experiment.html``.
 

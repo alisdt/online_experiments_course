@@ -255,7 +255,7 @@ We can also add new fields which change every time. In the ``trial`` node, chang
 
     data: {
         type: "trial",
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+        trial_duration: jsPsych.timelineVariable('duration'),
         fixation_duration: jsPsych.timelineVariable('fixation_duration')
     }
 
@@ -285,7 +285,7 @@ Now before ``jsPsych.init``, add this new function:
     function saveDataLine(data) {
         // choose the data we want to save
         var data_to_save = [
-            data.type, data.stimulus, data.stimulus_duration, data.fixation_duration, data.rt
+            data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
         ];
         // join these with commas and add a newline
         var line = data_to_save.join(',')+"\n";
@@ -302,7 +302,7 @@ We could also use ``if`` to only save particular trials. For example:
         if (data.type == 'trial') {
             // choose the data we want to save
             var data_to_save = [
-                data.type, data.stimulus, data.stimulus_duration, data.fixation_duration, data.rt
+                data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
             ];
             // join these with commas and add a newline
             var line = data_to_save.join(',')+"\n";
@@ -371,7 +371,7 @@ result of a ``survey-text`` node and adds it as a new column.
     behind the University firewall -- but most
     real online experiments will be made accessible to the world.
 
-.. [#missing] The ``stimulus_duration`` field is missing -- we'll see how to add this to the output later on.
+.. [#missing] The ``trial_duration`` field is missing -- we'll see how to add this to the output later on.
 
 .. [#polyfills] In JavaScript programming, a *polyfill* is a piece of code which implements a particular function,
     usually for browsers that don't have that function.

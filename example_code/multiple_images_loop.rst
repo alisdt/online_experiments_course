@@ -19,7 +19,7 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
     var factors = {
         image1: cats,
         image2: dogs,
-        stimulus_duration: [750, 1500],
+        trial_duration: [750, 1500],
         fixation_duration: [250, 500]
     };
 
@@ -41,7 +41,7 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
             type: 'html-keyboard-response',
             prompt: '<p>Press a key!</p>',
             stimulus: '<img src="'+values.image1+'"> <img src="'+values.image2+'">',
-            stimulus_duration: values.stimulus_duration,
+            trial_duration: values.duration,
             data: values
         };
         trials.push(trial);
@@ -50,7 +50,7 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
                We could copy individual items like this:
                data: {
                    fixation_duration: values.fixation_duration,
-                   stimulus_duration: values.stimulus_duration,
+                   trial_duration: values.duration,
                    image1: values.image1,
                    image2: values.image2
                }

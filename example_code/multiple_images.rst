@@ -19,7 +19,7 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
     var factors = {
         image1: cats,
         image2: dogs,
-        stimulus_duration: [750, 1500],
+        duration: [750, 1500],
         fixation_duration: [250, 500]
     };
 
@@ -44,10 +44,10 @@ This code uses ``jspsych-html-keyboard-response``, so make sure it's included in
                +'<img src="'+jsPsych.timelineVariable("image2", true)+'">'
             );
         },
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+        trial_duration: jsPsych.timelineVariable('duration'),
         data: {
           fixation_duration: jsPsych.timelineVariable('fixation_duration'),
-          stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+          trial_duration: jsPsych.timelineVariable('duration'),
           image1: jsPsych.timelineVariable('image1'),
           image2: jsPsych.timelineVariable('image2')
         }
