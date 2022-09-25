@@ -22,7 +22,7 @@
   var trial = {
       type: jsPsychImageKeyboardResponse,
       prompt: '<p>Press a key!</p>',
-      image: jsPsych.timelineVariable('image'),
+      stimulus: jsPsych.timelineVariable('image'),
       trial_duration: jsPsych.timelineVariable('duration')
   };
 

@@ -19,4 +19,4 @@ for (var word of sentence) {
 
 // add a list of all images, these will be loaded right at the start
 // to avoid delays
-jsPsych.run([trials]);
+jsPsych.run(trials);

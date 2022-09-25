@@ -302,19 +302,24 @@ into ``experiment.js``:
 
 .. code:: javascript
 
-    var nodes = []
+    var jsPsych = initJsPsych({
+        on_finish: function() {
+            jsPsych.data.displayData();
+        }
+    });
+
+    var trials = [];
     for (var i=1; i<11; i++) {
-        var node = {
-            type: 'html-keyboard-response',
+        var trial = {
+            type: jsPsychHtmlKeyboardResponse,
             stimulus: i,
             trial_duration: 500,
             response_ends_trial: false
         }
-        nodes.push(node);
+        trials.push(trial);
     }
-    jsPsych.init({
-        timeline: nodes
-    });
+
+    jsPsych.run(trials);
 
 Note that the ``push()`` method inside the loop is used to add something on to the end of
 a list -- this is quite a common way of building up a timeline in jsPsych.
@@ -437,10 +442,9 @@ Let's look at an example we've already seen.
 
 .. code:: javascript
 
-    jsPsych.init({
-        timeline: [trials_with_variables],
+    var jsPsych = initJsPsych({
         on_finish: function() {
-            jsPsych.data.displayData('csv');
+            jsPsych.data.displayData();
         }
     });
 
@@ -451,18 +455,18 @@ Why does this say:
 .. code:: javascript
 
         on_finish: function() {
-            jsPsych.data.displayData('csv');
+            jsPsych.data.displayData();
         }
 
 and not just this:
 
 .. code:: javascript
 
-        on_finish: jsPsych.data.displayData('csv');
+        on_finish: jsPsych.data.displayData();
 
 The answer is that putting the call inside a function delays its action.
-If the code was written the second way, it would run before ``jsPsych.init`` ran.
-Written the first way, it runs when ``on_finish`` is *used*, at the end of the
+If the code was written without ``function() { .... }``, it would run before ``initJsPsych`` ran.
+Written inside a function, it runs when ``on_finish`` is *used*, at the end of the
 experiment.
 
 If this seems confusing, don't worry -- just remember that the form above (using
@@ -501,15 +505,13 @@ If this seems confusing, don't worry -- just remember that the form above (using
 
         function(x, y) { return "The input was "+x+" and "+2*y; }
 
-    Newer versions of JavaScript have another way to define functions:
+    You may also see another way to define functions:
 
     .. code::
 
         (x, y) => "The input was "+x+" and "+2*y;
 
-    This new way isn't used as widely, as it's not supported on some older browsers and browser versions.
-
-    A function without a name is called an *anonymous function*.
+    A function without a name, like the two immediately above, is called an *anonymous function*.
 
 Code formatting in JavaScript
 -----------------------------

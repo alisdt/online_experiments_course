@@ -184,6 +184,8 @@ This approach makes it much easier to add new trials, e.g.
 
 This adds two new trials with only two more lines of code!
 
+See :ref:`this <trials_with_variables>` for the complete code.
+
 Repetition
 ----------
 
@@ -198,7 +200,7 @@ timeline variable definitions (``var variables = { ....``) add a line:
 This repeats the list ``variables`` five times, randomises it, and puts the
 result in a new list called ``repeated_variables``.
 
-Change your timeline node (`var trials_with_variables = { ....`) to use this:
+Change your timeline node (``var trials_with_variables = { ....``) to use this:
 
 .. code:: javascript
 
@@ -213,7 +215,7 @@ with five of each image.
 Once you've finished, your code should look like :ref:`this <repetition>`. (Don't look at
 this until you've taken a look at the console errors and tried to fix it, though!)
 
-This example uses timeline variables, but you can also give the `jsPsych.randomization.repeat(...)` function a list of nodes, and it will randomise and repeat them in the same way.
+This example uses timeline variables, but you can also give the ``jsPsych.randomization.repeat(...)`` function a list of nodes, and it will randomise and repeat them in the same way.
 
 Factorial design
 ----------------
@@ -260,7 +262,7 @@ use the ``stimulus`` and ``duration`` values that we generated.
 As a table, ``factorial_values`` would look like this:
 
 ======== ========
-stimulus duration
+image    duration
 ======== ========
 Dog2.jpg 400
 Dog1.jpg 1200
