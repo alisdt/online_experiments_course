@@ -24,7 +24,7 @@ start, this will be Visual Studio Code. Check the box "Always use this applicati
 
 If your text editor is not there,
 you'll need to select "Choose ...." and find it. You may find 
-`this note on finding Visual Studio Code <editor_hunt>`_ useful. (You only
+:ref:`this note on finding Visual Studio Code <editor_hunt>` useful. (You only
 need to do this if it's not there -- if your chosen text editor
 was in the list, you've finished).
 

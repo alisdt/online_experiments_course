@@ -1,3 +1,5 @@
+.. _editor_hunt:
+
 Note on finding VS Code
 =======================
 
