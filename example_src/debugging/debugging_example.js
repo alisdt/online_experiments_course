@@ -9,6 +9,8 @@
 
 */
 
+var jsPsych = initJsPsych();
+
 function word_trial(word) {
     var trial = 
         stimulus: word
@@ -24,6 +26,4 @@ for (var word in sentence) {
     trials.push(trial);
 }
 
-jsPsych.init({
-    timeline: trials
-});
+jsPsych.init(trials);

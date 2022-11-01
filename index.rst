@@ -5,7 +5,7 @@ Welcome to Online Experiments!
 
 This course is being updated to use jsPsych 7.3.
 
-Currently, materials up to and including section 05 are up to date.
+Currently, materials up to and including section 06 are up to date.
 
 Please start with the first section, "Introduction".
 
@@ -42,6 +42,7 @@ Please start with the first section, "Introduction".
    Stroop using a loop <example_code/stroop_loop>
    Stroop using functions <example_code/stroop_functions>
    Code editor hunt <editor_hunt>
+   Lists within lists <lists_within_lists>
 
 * :ref:`search`
 

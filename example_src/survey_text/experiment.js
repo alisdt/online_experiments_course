@@ -12,6 +12,15 @@ var factors = {
 
 var factorial_values = jsPsych.randomization.factorial(factors);
 
+var get_id = {
+    type: jsPsychSurveyText,
+    questions: [{prompt: 'What is your ID?'}],
+    on_finish: function(data) {
+        var response = data.response.Q0;
+        jsPsych.data.addProperties({ id: response });
+    }
+};
+
 var trial = {
     type: jsPsychImageKeyboardResponse,
     prompt: '<p>Press a key!</p>',
@@ -36,4 +45,4 @@ function saveData(name, data_in){
     });
 }
 
-jsPsych.run([trials_with_variables]);
+jsPsych.run([get_id, trials_with_variables]);

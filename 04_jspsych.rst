@@ -25,7 +25,7 @@ with ``<script>``:
 
 This tells the web browser to load code from the file ``experiment.js``.
 
-Now cut all the code you wrote in ``experiment.html`` file between
+Now cut all the code that you wrote in ``experiment.html`` file between
 ``<script>`` and ``</script>``, and paste it into ``experiment.js``.
 You can now delete the empty ``<script></script>`` in ``experiment.html``.
 

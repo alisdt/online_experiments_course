@@ -1,3 +1,5 @@
+var jsPsych = initJsPsych({ on_trial_finish: saveDataLine });
+
 var factors = {
     image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
     duration: [400, 800, 1200],
@@ -10,7 +12,7 @@ var factorial_values = jsPsych.randomization.factorial(factors);
 // - are saved automatically if we save the whole dataset at the end
 // - are accessible in saveDataLine if we save line-by-line
 var fixation = {
-    type: 'html-keyboard-response',
+    type: jsPsychHtmlKeyboardResponse,
     stimulus: '+',
     trial_duration: jsPsych.timelineVariable('fixation_duration'),
     response_ends_trial: false,
@@ -22,7 +24,7 @@ var fixation = {
 // fixation_duration is put into the 'data' field for this node as this
 // is the one we report at the end -- fixation nodes are filtered out
 var trial = {
-    type: 'image-keyboard-response',
+    type: jsPsychImageKeyboardResponse,
     prompt: '<p>Press a key!</p>',
     stimulus: jsPsych.timelineVariable('image'),
     trial_duration: jsPsych.timelineVariable('duration'),
@@ -66,7 +68,4 @@ function saveDataLine(data) {
     saveData("test.csv", line);
 }
 
-jsPsych.init({
-    timeline: [trials_with_variables],
-    on_data_update: saveDataLine
-});
+jsPsych.run([trials_with_variables]);

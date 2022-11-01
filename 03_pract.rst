@@ -34,6 +34,8 @@ directly by selecting it and clicking on the "Edit" button in the toolbar.
 .. image:: images/edit.png
   :width: 90%
 
+.. _developer_tools:
+
 Developer Tools
 ---------------
 
@@ -44,8 +46,8 @@ online experiment in JavaScript, you can use the
 web developer tools in your browser. All recent versions of
 browsers have these tools built in.
 
-You can open developer tools from the menu with More Tools → Developer Tools,
-or by pressing Ctrl-Shift-I.
+In most browsers you can open developer tools from the menu with More Tools → Developer Tools,
+or by pressing Ctrl-Shift-I on Windows or Command-Option-I (⌘-⌥-I) on Mac.
 
 Go to the page for your experiment -- use the link for the
 uploaded copy on the server, not the copy on your computer.

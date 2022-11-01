@@ -9,12 +9,11 @@ Testing
 -------
 
 As we've seen before, if you're just testing your experiment you can show the
-results after the experiment with something like this:
+results after the experiment by changing your initJsPsych:
 
 .. code:: javascript
 
-    jsPsych.init({
-      timeline: timeline,
+    var jsPsych = initJsPsych({
       on_finish: function() {
         jsPsych.data.displayData();
       }
@@ -26,8 +25,7 @@ You can easily display it in CSV format, though:
 
 .. code:: javascript
 
-    jsPsych.init({
-      timeline: timeline,
+    var jsPsych = initJsPsych({
       on_finish: function() {
         jsPsych.data.displayData('csv');
       }
@@ -100,14 +98,6 @@ In the ``experiment.js`` file, add a new function:
         });
     }
 
-.. topic:: fetch
-
-    This uses a function called ``fetch``. Note that this doesn't
-    work on Internet Explorer. If you need the experiment
-    to be available on IE, you can either use a different method to send the data (see
-    `the jsPsych documentation <http://www.jspsych.org/7.3/overview/data/#storing-data-permanently-as-a-file>`_ )
-    or use the `fetch polyfill <https://github.com/github/fetch>`_ [#polyfills]_ .
-
 Now finally, we need to change the experiment to send the data. Change your call to ``jsPsych.init``
 to contain:
 
@@ -126,7 +116,7 @@ Note that the previous code called the ``displayData()`` function, which just sh
 This new code calls ``jsPsych.data.get()`` to get a ``DataCollection`` object. Then we call the ``DataCollection``'s
 ``csv()`` method, to get that data as CSV. ``DataCollection`` objects are a new feature of jsPsych, which
 give you lots of control over your data. We'll take a look at some specific things later -- for now,
-`here's a link to the documentation <http://www.jspsych.org/7.3/core_library/jspsych-data/#datacollection>`_
+`here's a link to the documentation <https://www.jspsych.org/7.3/reference/jspsych-data/#datacollection>`_
 
 How it works
 ------------
@@ -192,7 +182,7 @@ Data that does change
 
 You can add extra information that varies for each trial. If you haven't already, add a fixation node to your
 current copy of the ``factorial`` experiment. (You can see how this is done
-:ref:`here <factorial_with_fixation>` ). The fixation uses the ``jspsych-html-keyboard-response`` plugin so
+:ref:`here <factorial_with_fixation>` ). The fixation uses the ``html-keyboard-response`` plugin so
 remember to add this to your ``experiment.html`` file.
 
 Now run the experiment again. You'll see that the fixation node also generates a line in the output.
@@ -269,15 +259,15 @@ For some experiments you may want to send each line individually. This requires 
 
 Make a copy of your experiment -- we'll adapt this one to send the data for each trial as it's completed.
 
-Delete ``on_finish`` and the associated code from ``jsPsych.init``.
+Delete ``on_finish`` and the associated code from ``initJsPsych``.
 
 In its place, add:
 
 .. code:: javascript
 
-    on_data_update: saveDataLine
+    on_trial_finish: saveDataLine
 
-This specifies a new function to be called every time the data are updated.
+This specifies a new function to be called every time a trial finishes.
 Now before ``jsPsych.init``, add this new function:
 
 .. code:: javascript

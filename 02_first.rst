@@ -83,6 +83,18 @@ In a real online experiment, the files for the experiment would be on another co
 (a server) and the participant would access them over the internet. Next, we'll look
 at how to upload your experiment files to a server.
 
+.. topic:: ``var`` and ``const``
+
+    In this first example there are two lines:
+
+    .. code:: javascript
+
+        const jsPsych = initJsPsych();
+
+        const trial = {
+
+    ``const`` is one way of announcing to JavaScript that we want to store a value. There are also ``var`` and ``let`` that do very similar things, and you'll see these in other examples. The difference between these is beyond the scope of this course. To be consistent with the majority of examples on jspsych.org and elsewhere, we suggest that you just use ``var`` everywhere.
+
 Uploading your experiment
 -------------------------
 

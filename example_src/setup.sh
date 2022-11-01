@@ -5,7 +5,7 @@ do
   cp nasa_proxima.png ${example};
 done
 
-for example in datasaving linebyline save_data;
+for example in datasaving linebyline save_data survey_text;
 do
   cp save_data.php ${example};
 done
@@ -22,7 +22,7 @@ done
 
 wget https://softdev.ppls.ed.ac.uk/online_experiments/images.zip
 unzip -o images.zip
-for example in s04_multi_image repetition datasaving trials_with_variables factorial_with_fixation factorial linebyline;
+for example in s04_multi_image repetition datasaving trials_with_variables factorial_with_fixation factorial linebyline survey_text;
 do
   cp images/* ${example};
 done
