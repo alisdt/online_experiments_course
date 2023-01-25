@@ -98,19 +98,21 @@ In the ``experiment.js`` file, add a new function:
         });
     }
 
-Now finally, we need to change the experiment to send the data. Change your call to ``jsPsych.init``
+Now finally, we need to change the experiment to send the data. Change your call to ``initJsPsych``
 to contain:
 
 .. code:: javascript
 
-        on_finish: function(){
+    var jsPsych = initJsPsych({
+        on_finish: function() {
             var experiment_data = jsPsych.data.get();
             saveData("test.csv", experiment_data.csv());
         }
-
-This should replace any previous ``on_finish`` that was in the call.
+    });
 
 This calls our new ``saveData`` function with a filename (``test.csv``) and a CSV copy of the data.
+It replaces the previous code which displayed the data. (If you want to display the data as well, you
+can add the line ``jsPsych.data.displayData('csv');`` back in).
 
 Note that the previous code called the ``displayData()`` function, which just shows the data on the screen.
 This new code calls ``jsPsych.data.get()`` to get a ``DataCollection`` object. Then we call the ``DataCollection``'s
@@ -362,9 +364,6 @@ result of a ``survey-text`` node and adds it as a new column.
     real online experiments will be made accessible to the world.
 
 .. [#missing] The ``trial_duration`` field is missing -- we'll see how to add this to the output later on.
-
-.. [#polyfills] In JavaScript programming, a *polyfill* is a piece of code which implements a particular function,
-    usually for browsers that don't have that function.
 
 .. [#http] .... and a few other methods for things like changing and deleting pages, but these are seldom used.
 
