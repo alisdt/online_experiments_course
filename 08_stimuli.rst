@@ -35,8 +35,8 @@ these to the node above, it will look something like this:
         type: 'html-keyboard-response',
         stimulus: function() {
              return (
-                 '<img src="'+jsPsych.timelineVariable("image1", true)+'">'
-                 +'<img src="'+jsPsych.timelineVariable("image2", true)+'">'
+                 '<img src="'+jsPsych.timelineVariable("image1")+'">'
+                 +'<img src="'+jsPsych.timelineVariable("image2")+'">'
              );
         }
     }
@@ -53,9 +53,6 @@ Some notes on this:
 
   stimulus: timelineVariable('myvariable');
 
-* When using more than one timeline variable, or combining a timeline variable
-  with other information, one must wrap it in ``function() { .... }`` and also
-  give ``timelineVariable`` an extra argument, ``true``, as in the example above.
 * There is another way to do this which doesn't involve timeline variables.
   Instead, create a loop over the result of the factorial function to create
   a list of nodes. This may be easier to understand, and it's good to know this

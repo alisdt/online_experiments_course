@@ -67,7 +67,7 @@ Your code might not look exactly like this -- the two names between the
 Test this by reloading the experiment page in your web browser.
 You should see two images displayed, and each time you can press a key
 to move on. Remember
-you might need to do a "hard reload", here's a reminder:
+you might need to do a "hard reload" (also called a "hard refresh"), here's a reminder:
 
 | Firefox: ⌘-shift-R on Mac, ctrl-shift-R on Windows or Linux
 | Chrome: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux

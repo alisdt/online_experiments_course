@@ -24,7 +24,7 @@ var factors = {
 var factorial_values = jsPsych.randomization.factorial(factors);
 
 var trial = {
-    type: 'image-keyboard-response',
+    type: jsPsychImageKeyboardResponse,
     prompt: '<p>Press a key!</p>',
     stimulus: jsPsych.timelineVariable('image'),
     trial_duration: jsPsych.timelineVariable('duration')

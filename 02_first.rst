@@ -45,55 +45,198 @@ server.
 First experiment
 ----------------
 
-Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
+The following tutorial is copied from `the jsPsych website <https://www.jspsych.org/7.3/tutorials/hello-world>`_ as permitted by its license [#license]_ .
 
-We're going to follow the first tutorial. The tutorial offers you some
-options on how to install jsPsych. `Here's the link to go straight to our
-preferred option <https://www.jspsych.org/7.3/tutorials/hello-world/#option-1-using-cdn-hosted-scripts>`_.
+Step 1: Create an HTML file
+...........................
 
-This first example only uses the web browser, it doesn't send any information
-back to the server. Once you've got it working, I'll show you how to run the
-same experiment, with the files on the server.
+Open your text editor (Visual Studio Code, if you took our suggestion in the Introduction).
+To create a new file, use "File → Save As ....".
+Choose a folder to work in and give the filename ``experiment.html``.
 
-Here are some extra notes; keep these handy while you follow the tutorial.
+There's some basic code that (nearly) all HTML documents have in common. Here's a typical bare-bones HTML document.
 
-**Step 1**
-    To create your file, in your text editor use "File → Save As ....".
-    Choose a folder to work in and give the filename ``experiment.html``.
+.. code:: html
 
-    To open ``experiment.html``, try double-clicking on it.
-    If that doesn't work, right-click on it, choose "Open with ...." and
-    choose a web browser.
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+    </head>
+    <body></body>
+    </html>
 
-**Step 5**
-    If you already have the file open in the web browser, you just
-    need to reload it. If that doesn't work you may need to "hard reload".
-    How you do this depends on your browser:
+Add the above code to the ``experiment.html`` file and save it. If you open the file in a web browser, you should see a blank page and the title of the page will be 'My experiment'. (To open ``experiment.html``, try double-clicking on it in your files. If that doesn't work, right-click on it, choose "Open with ...." and choose a web browser.)
+
+Step 2: Load the jsPsych library
+................................
+
+To use jsPsych, add a <script> tag to load the library. We'll load the library from a CDN, which means that the library is hosted on another server and can be loaded without having your own copy.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    </head>
+    <body></body>
+    </html>
+
+Note that the URL for the jsPsych library includes the version number, which ensures that the behavior of your experiment won't change with any future updates to jsPsych.
+
+You may also want to import the jsPsych stylesheet, which applies a basic set of visual styles to the experiment. This requires adding a <link> tag to the <head> section of the document.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    </html>
+
+Step 3: Create a script element and initialize jsPsych
+......................................................
+
+To add JavaScript code directly to the webpage we need to add a pair of <script> tags after the <body> tags.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+    </script>
+    </html>
+
+To initialize jsPsych we use the ``initJsPsych()`` function and assign the output to a new variable.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+    </script>
+    </html>
+
+Step 4: Use a plugin to print a message
+.......................................
+
+For this demo we want to show some text on the screen. This is exactly what the ``html-keyboard-response`` plugin is designed to do. To use the plugin, we need to load it with a ``<script>`` tag.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+    </script>
+    </html>
+
+Once the plugin is loaded we can create a trial using the plugin. To declare a trial that uses the ``html-keyboard-response`` plugin, we create an object with the property type equal to ``jsPsychHtmlKeyboardResponse``. We can specify the other parameters of the plugin in the same object. Here we use the stimulus parameter to include a message. You can see the full set of parameters for each plugin on its documentation page.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+
+        var hello_trial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: 'Hello world!'
+        }
+    </script>
+    </html>
+
+Step 5: Run the experiment
+..........................
+
+Now that we have the trial defined we need to tell jsPsych to run an experiment consisting of this trial. This requires using the ``jsPsych.run`` function and passing in a timeline. For a simple experiment like this one, the timeline is just an array containing the list of trials to run.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+
+        var hello_trial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: 'Hello world!'
+        }
+
+        jsPsych.run([hello_trial]);
+    </script>
+    </html>
+
+Once you've saved the file, open it in a browser. You should see "Hello world!" printed on the screen, and if you press a key on the keyboard, the text should disappear (ending the trial).
+
+If you already have the file open in the web browser, you just
+need to reload it. If that doesn't work you may need to "hard reload".
+How you do this depends on your browser:
 
 | Firefox: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
 | Chrome: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
 | Edge: ctrl-F5
 
-Follow the tutorial through to the end. This will tell you how to create this first
-simple jsPsych program in the web browser. At this point it's still all running
+Moving on
+---------
+
+At this point it's still all running
 on your computer -- the browser is reading files from your computer's disk. Nothing
-is being loaded from the internet.
+is being loaded from the internet. Later on I'll show you how to run the
+same experiment, with the files on the server.
 
 In a real online experiment, the files for the experiment would be on another computer
 (a server) and the participant would access them over the internet. Next, we'll look
 at how to upload your experiment files to a server.
 
-.. topic:: ``var`` and ``const``
+.. topic:: ``var``, ``const`` and ``let``
 
-    In this first example there are two lines:
-
-    .. code:: javascript
-
-        const jsPsych = initJsPsych();
-
-        const trial = {
-
-    ``const`` is one way of announcing to JavaScript that we want to store a value. There are also ``var`` and ``let`` that do very similar things, and you'll see these in other examples. The difference between these is beyond the scope of this course. To be consistent with the majority of examples on jspsych.org and elsewhere, we suggest that you just use ``var`` everywhere.
+    ``var`` is one way of announcing to JavaScript that we want to store a value.
+    ``const`` and ``let`` that do similar things. You may see
+    these in other examples. The difference between these is beyond the scope of this
+    course. To be consistent with the majority of examples,
+    we suggest that you just use ``var`` everywhere.
 
 Uploading your experiment
 -------------------------
@@ -268,3 +411,5 @@ doi:10.3758/s13428-014-0458-y
 .. rubric:: Footnotes
 
 .. [#dirs] These are also called "directories".
+
+.. [#license] See `this page <https://github.com/jspsych/jsPsych/blob/main/license.txt>`_

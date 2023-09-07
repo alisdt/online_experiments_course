@@ -2,4 +2,15 @@ jspsych*
 */jspsych*
 images.zip
 images
-
+datasaving/*.html
+survey_text/*.html
+repetition/*.html
+trials_with_variables/*.html
+factorial/*.html
+multiple_images_loop/*.html
+multiple_images/*.html
+factorial_with_fixation/*.html
+linebyline/*.html
+pptcondition/*.html
+s04/*.html
+s04_multi_image/*.html

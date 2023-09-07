@@ -170,7 +170,7 @@ Data that doesn't change
 You can add this using ``jspsych.data.addProperties()``. For example, let's add the date and time of the start of
 the experiment.
 
-Before your ``jsPsych.init``, add the code:
+At the top of your code, after ``var jsPsych = initJsPsych(....);``, add the code:
 
 .. code:: javascript
 
@@ -270,7 +270,7 @@ In its place, add:
     on_trial_finish: saveDataLine
 
 This specifies a new function to be called every time a trial finishes.
-Now before ``jsPsych.init``, add this new function:
+At the top of your code, just after ``var jsPsych = initJsPsych(....);``, add this new function:
 
 .. code:: javascript
 

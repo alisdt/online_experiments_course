@@ -22,7 +22,7 @@ done
 
 wget https://softdev.ppls.ed.ac.uk/online_experiments/images.zip
 unzip -o images.zip
-for example in s04_multi_image repetition datasaving trials_with_variables factorial_with_fixation factorial linebyline survey_text;
+for example in s04_multi_image multiple_images repetition datasaving trials_with_variables factorial_with_fixation factorial linebyline survey_text;
 do
   cp images/* ${example};
 done
