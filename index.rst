@@ -3,10 +3,6 @@ Online Experiments with jsPsych
 
 Welcome to Online Experiments!
 
-This course is being updated to use jsPsych 7.3.
-
-Currently, materials up to and including section 06 are up to date.
-
 Please start with the first section, "Introduction".
 
 .. toctree::
