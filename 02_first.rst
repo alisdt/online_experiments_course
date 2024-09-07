@@ -223,12 +223,11 @@ Moving on
 
 At this point it's still all running
 on your computer -- the browser is reading files from your computer's disk. Nothing
-is being loaded from the internet. Later on I'll show you how to run the
-same experiment, with the files on the server.
+is being loaded from the internet.
 
 In a real online experiment, the files for the experiment would be on another computer
 (a server) and the participant would access them over the internet. Next, we'll look
-at how to upload your experiment files to a server.
+at how to upload your experiment files to our server.
 
 .. topic:: ``var``, ``const`` and ``let``
 
@@ -368,7 +367,7 @@ To illustrate the difference between different kinds of nodes, let's change
 our "Hello world" example to display an image. Take a look at the documentation
 for ``image-keyboard-response`` plugin. You can pick your own image to
 display, or if you need one,
-`use this <https://softdev.ppls.ed.ac.uk/static/images/nasa_proxima.png>`_.
+`use this <https://softdev.ppls.ed.ac.uk/online_experiments/nasa_proxima.png>`_.
 
 Now try to change your jsPsych program to show the image.
 

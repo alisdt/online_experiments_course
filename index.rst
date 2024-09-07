@@ -39,6 +39,7 @@ Please start with the first section, "Introduction".
    Stroop using functions <example_code/stroop_functions>
    Code editor hunt <editor_hunt>
    Lists within lists <lists_within_lists>
+   For tutors <for_tutors>
 
 * :ref:`search`
 

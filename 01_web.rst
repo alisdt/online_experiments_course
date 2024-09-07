@@ -34,7 +34,7 @@ Google Chrome or Mozilla Firefox. I don't recommend Safari as it can have
 trouble with some online experiments.
 
 Edge
-    `https://www.microsoft.com/en-us/edge <https://www.microsoft.com/en-us/edge>`_
+    `https://www.microsoft.com/en-gb/edge <https://www.microsoft.com/en-gb/edge>`_
 
 Chrome
     `https://www.google.co.uk/chrome/ <https://www.google.co.uk/chrome/>`_
@@ -130,7 +130,8 @@ Thanks!
 
 With gratitude to the
 `DjangoGirls intro <https://tutorial.djangogirls.org/en/how_the_internet_works/>`_,
-for inspiration.
+which was itself inspired by the talk "How the Internet works" by 
+by `Jessica McKellar <http://web.mit.edu/jesstess/www/>`_.
 
 Internet image: By The Opte Project CC BY 2.5 (http://creativecommons.org/licenses/by/2.5 ),
 via Wikimedia Commons, `original source here <https://commons.wikimedia.org/wiki/File:Internet_map_1024.jpg>`_ .

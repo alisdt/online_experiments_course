@@ -16,8 +16,8 @@ Here's the link to download `Visual Studio Code <https://code.visualstudio.com/D
 
 For CyberDuck, here are download links for Windows and Mac.
 
-| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-8.4.3.38269.exe>`_
-| `Mac link <https://update.cyberduck.io/Cyberduck-8.4.3.38269.zip>`_
+| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-8.6.3.40040.exe>`_
+| `Mac link <https://update.cyberduck.io/Cyberduck-8.6.3.40040.zip>`_
 
 To transfer files from Linux, it will depend on your distribution. In most Linux distributions you can
 connect directly in the desktop file browser, or use the ``scp`` command.

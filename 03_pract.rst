@@ -50,7 +50,7 @@ In most browsers you can open developer tools from the menu with More Tools → 
 or by pressing Ctrl-Shift-I on Windows or Command-Option-I (⌘-⌥-I) on Mac.
 
 Go to the page for your experiment -- use the link for the
-uploaded copy on the server, not the copy on your computer.
+uploaded copy on the server in your web browser, not the copy on your computer.
 
 Now go to the web page for the example experiment
 you created last week. Enable Developer Tools (see the list above) and
@@ -79,7 +79,8 @@ to where the problem is! You can click on the links on the right which will show
 you the relevant parts of the code. While error messages can be a little cryptic,
 there's usually something which will help, like "missing }". At the end of the line
 with the error you'll see something like "experiment.html:18:29". This means that
-the error was noticed on line 18, at the 29th character. Sometimes 
+the error was noticed on line 18, at the 29th character. Sometimes this is a little
+bit after the actual error, but it usually gives you a good place to start looking.
 
 Now fix your experiment and reload the page again -- the error should disappear!
 
@@ -126,4 +127,5 @@ The second steps through the code gradually, one line at a time.
 
 That concludes the introduction to Developer Tools. Don't worry if you didn't understand
 everything on the screen when it was running -- the important thing is to know that it's
-there to help you when your program isn't working!
+there to help you when your program isn't working! **When your code isn't working, the first
+thing you should try is opening Developer Tools to see if you have any error messages.**
