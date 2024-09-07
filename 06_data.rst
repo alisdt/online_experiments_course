@@ -86,7 +86,7 @@ In the ``experiment.js`` file, add a new function:
 
 .. code:: javascript
 
-    function saveData(name, data_in){
+    function save_data(name, data_in){
         var url = 'save_data.php';
         var data_to_send = {filename: name, filedata: data_in};
         fetch(url, {
@@ -106,11 +106,11 @@ to contain:
     var jsPsych = initJsPsych({
         on_finish: function() {
             var experiment_data = jsPsych.data.get();
-            saveData("test.csv", experiment_data.csv());
+            save_data("test.csv", experiment_data.csv());
         }
     });
 
-This calls our new ``saveData`` function with a filename (``test.csv``) and a CSV copy of the data.
+This calls our new ``save_data`` function with a filename (``test.csv``) and a CSV copy of the data.
 It replaces the previous code which displayed the data. (If you want to display the data as well, you
 can add the line ``jsPsych.data.displayData('csv');`` back in).
 
@@ -267,21 +267,21 @@ In its place, add:
 
 .. code:: javascript
 
-    on_trial_finish: saveDataLine
+    on_trial_finish: save_data_line
 
 This specifies a new function to be called every time a trial finishes.
 At the top of your code, just after ``var jsPsych = initJsPsych(....);``, add this new function:
 
 .. code:: javascript
 
-    function saveDataLine(data) {
+    function save_data_line(data) {
         // choose the data we want to save
         var data_to_save = [
             data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
         ];
         // join these with commas and add a newline
         var line = data_to_save.join(',')+"\n";
-        saveData("test.csv", line);
+        save_data("test.csv", line);
     }
 
 This will work with the ``save_data.php`` code, because it will append new data sent to an existing file.
@@ -290,7 +290,7 @@ We could also use ``if`` to only save particular trials. For example:
 
 .. code:: javascript
 
-    function saveDataLine(data) {
+    function save_data_line(data) {
         if (data.type == 'trial') {
             // choose the data we want to save
             var data_to_save = [
@@ -298,7 +298,7 @@ We could also use ``if`` to only save particular trials. For example:
             ];
             // join these with commas and add a newline
             var line = data_to_save.join(',')+"\n";
-            saveData("test.csv", line);
+            save_data("test.csv", line);
         }
     }
 

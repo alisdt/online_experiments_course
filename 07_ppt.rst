@@ -99,7 +99,7 @@ Look for code like this:
 
     on_finish: function(){
         var experiment_data = jsPsych.data.get();
-        saveData("test.csv", experiment_data.csv());
+        save_data("test.csv", experiment_data.csv());
     }
 
 and change it to this:
@@ -108,7 +108,7 @@ and change it to this:
 
     on_finish: function(){
         var experiment_data = jsPsych.data.get();
-        saveData(participant_id+"_data.csv", experiment_data.csv());
+        save_data(participant_id+"_data.csv", experiment_data.csv());
     }
 
 This adds the participant ID to the filename, so that they will be called ``1_data.csv``, ``2_data.csv``,

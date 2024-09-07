@@ -47,8 +47,8 @@ var trial = {
     stimulus: function () {
         // note: the outer parentheses are only here so we can break the line
         return (
-             '<p style="color: '+jsPsych.timelineVariable("colour", true)+'">'
-             +jsPsych.timelineVariable("text", true)
+             '<p style="color: '+jsPsych.timelineVariable("colour")+'">'
+             +jsPsych.timelineVariable("text")
              +'</p>'
         );
     },

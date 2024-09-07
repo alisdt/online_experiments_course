@@ -1,4 +1,4 @@
-var jsPsych = initJsPsych({ on_trial_finish: saveDataLine });
+var jsPsych = initJsPsych({ on_trial_finish: save_data_line });
 
 var factors = {
     image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
@@ -10,7 +10,7 @@ var factorial_values = jsPsych.randomization.factorial(factors);
 
 // adding a 'data' field gives us extra values which:
 // - are saved automatically if we save the whole dataset at the end
-// - are accessible in saveDataLine if we save line-by-line
+// - are accessible in save_data_line if we save line-by-line
 var fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: '+',
@@ -40,7 +40,7 @@ var trials_with_variables = {
     timeline_variables: factorial_values
 };
 
-function saveData(name, data_in){
+function save_data(name, data_in){
     // this is exactly the same as in the previous example
     // (all it does is send data to the server!)
     var url = 'save_data.php';
@@ -54,7 +54,7 @@ function saveData(name, data_in){
     });
 }
 
-function saveDataLine(data) {
+function save_data_line(data) {
     // if this isn't a trial node, return from the function (i.e. no action)
     if (data.type != 'trial') {
         return;
@@ -65,7 +65,7 @@ function saveDataLine(data) {
     ];
     // join these with commas and add a newline
     var line = data_to_save.join(',')+"\n";
-    saveData("test.csv", line);
+    save_data("test.csv", line);
 }
 
 jsPsych.run([trials_with_variables]);

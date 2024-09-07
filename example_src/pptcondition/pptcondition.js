@@ -1,7 +1,7 @@
 var jsPsych = initJsPsych({
     on_finish: function() {
         var experiment_data = jsPsych.data.get();
-        saveData(participant_id+"_data.csv", experiment_data.csv());
+        save_data(participant_id+"_data.csv", experiment_data.csv());
     }
 });
 
@@ -35,7 +35,7 @@ var trials_with_variables = {
     timeline_variables: factorial_values
 };
 
-function saveData(name, data_in){
+function save_data(name, data_in){
     var url = 'save_data.php';
     var data_in = {filename: name, filedata: data_to_send};
     fetch(url, {
