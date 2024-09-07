@@ -1,4 +1,4 @@
-var jsPsych = initJsPsych({ on_trial_finish: save_data_line });
+var jsPsych = initJsPsych();
 
 var factors = {
     image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
@@ -32,6 +32,11 @@ var trial = {
         type: 'trial',
         trial_duration: jsPsych.timelineVariable('duration'),
         fixation_duration: jsPsych.timelineVariable('fixation_duration')
+    },
+    // this gives jsPsych a function to run every time this trial ends
+    // the function is given the data from the trial (with response)
+    on_finish: function (data) {
+        save_data_line(data);
     }
 };
 
@@ -55,10 +60,6 @@ function save_data(name, data_in){
 }
 
 function save_data_line(data) {
-    // if this isn't a trial node, return from the function (i.e. no action)
-    if (data.type != 'trial') {
-        return;
-    }
     // choose the data we want to save
     var data_to_save = [
         data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt

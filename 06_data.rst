@@ -196,7 +196,7 @@ Now run the experiment again. You'll see that the fixation node also generates a
     "1010","Dog1.jpg","32","image-keyboard-response","1","1777","0.0-0.0-1.0"
     "null","+","null","html-keyboard-response","2","2283","0.0-0.0-0.1"
 
-We might want to filter these (or other nodes) out. To add this to the nodes, we use the ``data`` field.
+We might want to log the trial type so we can filter these (or other nodes) out of data saved at the end of the experiment. To add this to the nodes, we use the ``data`` field.
 
 In the ``fixation`` node, add:
 
@@ -221,7 +221,7 @@ Now do the same for the ``trial`` node, but add:
     data: { type: 'trial' }
 
 Run your experiment again. There should be a new column, with "trial" or "fixation". This will make it easier
-to filter out fixations.
+to filter out fixations in code, or when you do your analysis.
 
 .. topic:: Filters
 
@@ -263,13 +263,19 @@ Make a copy of your experiment -- we'll adapt this one to send the data for each
 
 Delete ``on_finish`` and the associated code from ``initJsPsych``.
 
-In its place, add:
+Instead, we'll add ``on_finish`` to the trials you want to record.
+
+``on_finish`` in initJsPsych specifies a function to run when the whole experiment finishes.
+
+``on_finish`` in a trial specifies a function to run when that trial finishes. The function is passed the data from the trial, which makes it easy to save.
+
+In the ``trial`` node, add:
 
 .. code:: javascript
 
-    on_trial_finish: save_data_line
+    on_finish: save_data_line
 
-This specifies a new function to be called every time a trial finishes.
+This specifies a new function to be called every time this trial finishes.
 At the top of your code, just after ``var jsPsych = initJsPsych(....);``, add this new function:
 
 .. code:: javascript
@@ -285,22 +291,6 @@ At the top of your code, just after ``var jsPsych = initJsPsych(....);``, add th
     }
 
 This will work with the ``save_data.php`` code, because it will append new data sent to an existing file.
-
-We could also use ``if`` to only save particular trials. For example:
-
-.. code:: javascript
-
-    function save_data_line(data) {
-        if (data.type == 'trial') {
-            // choose the data we want to save
-            var data_to_save = [
-                data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
-            ];
-            // join these with commas and add a newline
-            var line = data_to_save.join(',')+"\n";
-            save_data("test.csv", line);
-        }
-    }
 
 Here's an :ref:`example experiment <linebyline>` which demonstrates saving data
 line-by-line.
@@ -342,17 +332,6 @@ argument -- take a look at the documentation
 This is quite involved so don't be too worried if you don't get it straight away --
 take some time to look in the documentation, use the Developer Tools, and feel free
 to ask questions!
-
-.. topic:: Previous versions of jsPsych
-
-    In previous versions of jsPsych the response was called `responses` rather
-    than `response` and coded as JSON. So the equivalent of the above in the
-    older jsPsych versions would be:
-
-    `JSON.parse(data.responses).Q0`
-
-    It's much better to update to the latest jsPsych, though!
-
 
 Here's an example :ref:`solution to this exercise <surveytext>` which takes the
 result of a ``survey-text`` node and adds it as a new column.
