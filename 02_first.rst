@@ -45,7 +45,7 @@ server.
 First experiment
 ----------------
 
-The following tutorial is copied from `the jsPsych website <https://www.jspsych.org/7.3/tutorials/hello-world>`_ as permitted by its license [#license]_ .
+Let's take a look at the `jsPsych website <http://www.jspsych.org/6.3/>`_.
 
 Step 1: Create an HTML file
 ...........................
@@ -338,7 +338,7 @@ These types allow you to do different things like:
 
 and many others.
 
-Go back to `the jsPsych website <http://www.jspsych.org/>`_ and click on "Plugins".
+Go back to `the jsPsych website <http://www.jspsych.org/6.3/>`_ and click on "Plugins".
 
 The node above has the type ``jsPsychHtmlKeyboardResponse``. The corresponding plugin
 is ``html-keyboard-response``. Find this in the menu under "Plugins" on the jsPsych website,
