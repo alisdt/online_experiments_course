@@ -302,19 +302,24 @@ into ``experiment.js``:
 
 .. code:: javascript
 
-    var nodes = []
+    var jsPsych = initJsPsych({
+        on_finish: function() {
+            jsPsych.data.displayData();
+        }
+    });
+
+    var trials = [];
     for (var i=1; i<11; i++) {
-        var node = {
-            type: 'html-keyboard-response',
+        var trial = {
+            type: jsPsychHtmlKeyboardResponse,
             stimulus: i,
             trial_duration: 500,
             response_ends_trial: false
         }
-        nodes.push(node);
+        trials.push(trial);
     }
-    jsPsych.init({
-        timeline: nodes
-    });
+
+    jsPsych.run(trials);
 
 Note that the ``push()`` method inside the loop is used to add something on to the end of
 a list -- this is quite a common way of building up a timeline in jsPsych.
@@ -437,10 +442,9 @@ Let's look at an example we've already seen.
 
 .. code:: javascript
 
-    jsPsych.init({
-        timeline: [trials_with_variables],
+    var jsPsych = initJsPsych({
         on_finish: function() {
-            jsPsych.data.displayData('csv');
+            jsPsych.data.displayData();
         }
     });
 
@@ -451,18 +455,18 @@ Why does this say:
 .. code:: javascript
 
         on_finish: function() {
-            jsPsych.data.displayData('csv');
+            jsPsych.data.displayData();
         }
 
 and not just this:
 
 .. code:: javascript
 
-        on_finish: jsPsych.data.displayData('csv');
+        on_finish: jsPsych.data.displayData();
 
 The answer is that putting the call inside a function delays its action.
-If the code was written the second way, it would run before ``jsPsych.init`` ran.
-Written the first way, it runs when ``on_finish`` is *used*, at the end of the
+If the code was written without ``function() { .... }``, it would run before ``initJsPsych`` ran.
+Written inside a function, it runs when ``on_finish`` is *used*, at the end of the
 experiment.
 
 If this seems confusing, don't worry -- just remember that the form above (using
@@ -501,15 +505,13 @@ If this seems confusing, don't worry -- just remember that the form above (using
 
         function(x, y) { return "The input was "+x+" and "+2*y; }
 
-    Newer versions of JavaScript have another way to define functions:
+    You may also see another way to define functions:
 
     .. code::
 
         (x, y) => "The input was "+x+" and "+2*y;
 
-    This new way isn't used as widely, as it's not supported on some older browsers and browser versions.
-
-    A function without a name is called an *anonymous function*.
+    A function without a name, like the two immediately above, is called an *anonymous function*.
 
 Code formatting in JavaScript
 -----------------------------
@@ -522,20 +524,20 @@ if others will need to read it.
 For example, let's look at the start of the table of values (to use with timeline variables)
 that we saw in the last section:
 
-======== =================
-stimulus stimulus_duration
-======== =================
+======== ========
+image    duration
+======== ========
 Dog2.jpg 400
 Dog1.jpg 1200
 Dog1.jpg 800
 Dog3.jpg 800
-======== =================
+======== ========
 
 In JavaScript we could represent this as:
 
 .. code:: javascript
 
-    var timeline_values = [{stimulus:"Dog2.jpg",stimulus_duration:400},{stimulus:"Dog1.jpg",stimulus_duration:1200},{stimulus:"Dog1.jpg",stimulus_duration:800},{stimulus:"Dog3.jpg",stimulus_duration:800}];
+    var timeline_values = [{image:"Dog2.jpg",duration:400},{image:"Dog1.jpg",duration:1200},{image:"Dog1.jpg",duration:800},{image:"Dog3.jpg",duration:800}];
 
 Hopefully it's obvious that this is a bad idea, the line is far too long!
 JavaScript is happy to break lines anywhere, as long as it isn't in the middle
@@ -546,10 +548,10 @@ of the items in the array a line to itself:
 .. code:: javascript
 
     var timeline_values = [
-        {stimulus:"Dog2.jpg",stimulus_duration:400},
-        {stimulus:"Dog1.jpg",stimulus_duration:1200},
-        {stimulus:"Dog1.jpg",stimulus_duration:800},
-        {stimulus:"Dog3.jpg",stimulus_duration:800}];
+        {image:"Dog2.jpg",duration:400},
+        {image:"Dog1.jpg",duration:1200},
+        {image:"Dog1.jpg",duration:800},
+        {image:"Dog3.jpg",duration:800}];
 
 The last square bracket would be easy to miss when reading the code, though!
 Putting it on the next line makes it easier to spot:
@@ -557,10 +559,10 @@ Putting it on the next line makes it easier to spot:
 .. code:: javascript
 
     var timeline_values = [
-        {stimulus:"Dog2.jpg",stimulus_duration:400},
-        {stimulus:"Dog1.jpg",stimulus_duration:1200},
-        {stimulus:"Dog1.jpg",stimulus_duration:800},
-        {stimulus:"Dog3.jpg",stimulus_duration:800}
+        {image:"Dog2.jpg",duration:400},
+        {image:"Dog1.jpg",duration:1200},
+        {image:"Dog1.jpg",duration:800},
+        {image:"Dog3.jpg",duration:800}
     ];
 
 We can also insert some spaces, to make the code even more readable:
@@ -568,10 +570,10 @@ We can also insert some spaces, to make the code even more readable:
 .. code:: javascript
 
     var timeline_values = [
-        { stimulus: "Dog2.jpg", stimulus_duration: 400 },
-        { stimulus: "Dog1.jpg", stimulus_duration: 1200 },
-        { stimulus: "Dog1.jpg", stimulus_duration: 800 },
-        { stimulus: "Dog3.jpg", stimulus_duration: 800 }
+        { image: "Dog2.jpg", duration: 400 },
+        { image: "Dog1.jpg", duration: 1200 },
+        { image: "Dog1.jpg", duration: 800 },
+        { image: "Dog3.jpg", duration: 800 }
     ];
 
 You can imagine that if there were more values in each of these objects,
@@ -583,20 +585,20 @@ it would look something like:
 
     var timeline_values = [
         {
-            stimulus: "Dog2.jpg", 
-            stimulus_duration: 400
+            image: "Dog2.jpg", 
+            duration: 400
         },
         {
-            stimulus: "Dog1.jpg",
-            stimulus_duration: 1200
+            image: "Dog1.jpg",
+            duration: 1200
         },
         {
-            stimulus: "Dog1.jpg",
-            stimulus_duration: 800
+            image: "Dog1.jpg",
+            duration: 800
         },
         {
-            stimulus: "Dog3.jpg",
-            stimulus_duration: 800
+            image: "Dog3.jpg",
+            duration: 800
         }
     ];
 

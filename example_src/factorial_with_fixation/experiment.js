@@ -1,23 +1,29 @@
+  var jsPsych = initJsPsych({
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+  });
+
   var factors = {
-      stimulus: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
-      stimulus_duration: [400, 800, 1200],
+      image: ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'],
+      duration: [400, 800, 1200],
       fixation_duration: [250, 500, 750]
   };
 
   var factorial_values = jsPsych.randomization.factorial(factors);
 
   var fixation = {
-      type: 'html-keyboard-response',
+      type: jsPsychHtmlKeyboardResponse,
       stimulus: '+',
       trial_duration: jsPsych.timelineVariable('fixation_duration'),
       response_ends_trial: false
   };
 
   var trial = {
-      type: 'image-keyboard-response',
+      type: jsPsychImageKeyboardResponse,
       prompt: '<p>Press a key!</p>',
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      stimulus_duration: jsPsych.timelineVariable('stimulus_duration')
+      stimulus: jsPsych.timelineVariable('image'),
+      trial_duration: jsPsych.timelineVariable('duration')
   };
 
   var trials_with_variables = {
@@ -26,13 +32,8 @@
   };
 
   var instructions = {
-      type: 'html-keyboard-response',
+      type: jsPsychHtmlKeyboardResponse,
       stimulus: 'Welcome to the experiment!<br>When you see an image press any key you like.'
   }
 
-  jsPsych.init({
-      timeline: [instructions, trials_with_variables],
-      on_finish: function() {
-          jsPsych.data.displayData();
-      }
-  });
+  jsPsych.run([instructions, trials_with_variables]);

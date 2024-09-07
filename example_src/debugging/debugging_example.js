@@ -9,14 +9,16 @@
 
 */
 
+var jsPsych = initJsPsych();
+
 function word_trial(word) {
     var trial = 
         stimulus: word
     };
 }
 
-// O wild West Wind, thou breath of Autumn’s being
-var sentence = ["O","wild","West","Wind,","thou","breath","of","Autumn’s","being"];
+// O wild West Wind, thou breath of Autumn's being
+var sentence = ["O","wild","West","Wind,","thou","breath","of","Autumn's","being"];
 
 var trials = [];
 for (var word in sentence) {
@@ -24,6 +26,4 @@ for (var word in sentence) {
     trials.push(trial);
 }
 
-jsPsych.init({
-    timeline: trials
-});
+jsPsych.run(trials);

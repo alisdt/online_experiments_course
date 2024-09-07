@@ -15,6 +15,7 @@ applies here.
 
 .. image:: images/jspsych_how_1.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client)" and a box on the right labelled "Server". An arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser".
 
 |
 
@@ -26,6 +27,7 @@ example to load images).
 
 .. image:: images/jspsych_how_2.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client) 2. Experiment runs ...." and a box on the right labelled "Server". A greyed-out arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser".
 
 |
 
@@ -36,6 +38,7 @@ server.
 
 .. image:: images/jspsych_how_3.png
     :width: 90%
+    :alt: A box on the left labelled "Participant's web browser (client)" and greyed out " 2. Experiment runs ....", and a box on the right labelled "Server". A greyed-out arrow connects the two, pointing right to left, labelled "1. Load experiment into web browser". Another arrow connects the two, left to right, labelled "3. Send results to server"
 
 |
 
@@ -44,61 +47,204 @@ First experiment
 
 Let's take a look at the `jsPsych website <http://www.jspsych.org/6.3/>`_.
 
-We're going to follow the first tutorial. On the left of the page, click on
-"Tutorials" and then "The Basics: Hello World".
+Step 1: Create an HTML file
+...........................
 
-This first example only uses the web browser, it doesn't send any information
-back to the server. Once you've got it working, I'll show you how to run the
-same experiment, with the files on the server.
+Open your text editor (Visual Studio Code, if you took our suggestion in the Introduction).
+To create a new file, use "File → Save As ....".
+Choose a folder to work in and give the filename ``experiment.html``.
 
-Here are some extra notes; keep these handy while you follow the tutorial.
+There's some basic code that (nearly) all HTML documents have in common. Here's a typical bare-bones HTML document.
 
-**Step 1**
-    For convenience,
-    `here's the download link for jsPsych <https://github.com/jspsych/jsPsych/releases/download/v6.3.1/jspsych-6.3.1.zip>`_.
+.. code:: html
 
-**Step 2**
-    To create your file, in your text editor use "Save As ....".
-    Go to the folder where you unpacked jsPsych, and give the filename ``experiment.html``.
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+    </head>
+    <body></body>
+    </html>
 
-**Step 3**
-    To open ``experiment.html``, try double-clicking on it.
-    If that doesn't work, right-click on it, choose "Open with ...." and
-    choose a web browser.
+Add the above code to the ``experiment.html`` file and save it. If you open the file in a web browser, you should see a blank page and the title of the page will be 'My experiment'. (To open ``experiment.html``, try double-clicking on it in your files. If that doesn't work, right-click on it, choose "Open with ...." and choose a web browser.)
 
-**Step 4**
-    If you already have the file open in the web browser, you just
-    need to reload it. If that doesn't work you may need to "hard reload".
-    How you do this depends on your browser:
+Step 2: Load the jsPsych library
+................................
+
+To use jsPsych, add a <script> tag to load the library. We'll load the library from a CDN, which means that the library is hosted on another server and can be loaded without having your own copy.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    </head>
+    <body></body>
+    </html>
+
+Note that the URL for the jsPsych library includes the version number, which ensures that the behavior of your experiment won't change with any future updates to jsPsych.
+
+You may also want to import the jsPsych stylesheet, which applies a basic set of visual styles to the experiment. This requires adding a <link> tag to the <head> section of the document.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    </html>
+
+Step 3: Create a script element and initialize jsPsych
+......................................................
+
+To add JavaScript code directly to the webpage we need to add a pair of <script> tags after the <body> tags.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+    </script>
+    </html>
+
+To initialize jsPsych we use the ``initJsPsych()`` function and assign the output to a new variable.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+    </script>
+    </html>
+
+Step 4: Use a plugin to print a message
+.......................................
+
+For this demo we want to show some text on the screen. This is exactly what the ``html-keyboard-response`` plugin is designed to do. To use the plugin, we need to load it with a ``<script>`` tag.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+    </script>
+    </html>
+
+Once the plugin is loaded we can create a trial using the plugin. To declare a trial that uses the ``html-keyboard-response`` plugin, we create an object with the property type equal to ``jsPsychHtmlKeyboardResponse``. We can specify the other parameters of the plugin in the same object. Here we use the stimulus parameter to include a message. You can see the full set of parameters for each plugin on its documentation page.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+
+        var hello_trial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: 'Hello world!'
+        }
+    </script>
+    </html>
+
+Step 5: Run the experiment
+..........................
+
+Now that we have the trial defined we need to tell jsPsych to run an experiment consisting of this trial. This requires using the ``jsPsych.run`` function and passing in a timeline. For a simple experiment like this one, the timeline is just an array containing the list of trials to run.
+
+.. code:: html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My experiment</title>
+        <script src="https://unpkg.com/jspsych@7.3.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+        <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body></body>
+    <script>
+        var jsPsych = initJsPsych();
+
+        var hello_trial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: 'Hello world!'
+        }
+
+        jsPsych.run([hello_trial]);
+    </script>
+    </html>
+
+Once you've saved the file, open it in a browser. You should see "Hello world!" printed on the screen, and if you press a key on the keyboard, the text should disappear (ending the trial).
+
+If you already have the file open in the web browser, you just
+need to reload it. If that doesn't work you may need to "hard reload".
+How you do this depends on your browser:
 
 | Firefox: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
 | Chrome: ⌘-shift-R on Mac, ctrl-F5 on Windows or Linux
 | Edge: ctrl-F5
 
-Follow the tutorial through to the end. This will tell you how to create this first
-simple jsPsych program in the web browser. At this point it's still all running
+Moving on
+---------
+
+At this point it's still all running
 on your computer -- the browser is reading files from your computer's disk. Nothing
 is being loaded from the internet.
 
 In a real online experiment, the files for the experiment would be on another computer
 (a server) and the participant would access them over the internet. Next, we'll look
-at how to upload your experiment files to a server.
+at how to upload your experiment files to our server.
+
+.. topic:: ``var``, ``const`` and ``let``
+
+    ``var`` is one way of announcing to JavaScript that we want to store a value.
+    ``const`` and ``let`` that do similar things. You may see
+    these in other examples. The difference between these is beyond the scope of this
+    course. To be consistent with the majority of examples,
+    we suggest that you just use ``var`` everywhere.
 
 Uploading your experiment
 -------------------------
 
-You should have an account on the experiment server, ``jspsychlearning.ppls.ed.ac.uk``.
+You should have an account on the experiment server, ``{{ teaching_server_fqdn }}``.
 If not, please ask one of the tutors.
 
-To upload the experiment you'll need some file transfer software. You're welcome to
-use whatever you feel most comfortable with. For Windows or Mac, I recommend
-the free and open source program CyberDuck:
-
-| `Windows link <https://update.cyberduck.io/windows/Cyberduck-Installer-7.10.1.35318.exe>`_
-| `Mac link <https://update.cyberduck.io/Cyberduck-7.10.1.35318.zip>`_
-
-For Linux, it will depend on your distribution. In most Linux distributions you can
-connect directly in the file browser, or use the ``scp`` command.
+These instructions use CyberDuck to upload files, as suggested in the Introduction, but if
+you have another program that you know how to use that's fine.
 
 Connect
 .......
@@ -114,9 +260,13 @@ This window will appear:
 .. image:: images/connection.png
 
 Select "SFTP" from the dropdown menu at the top.
-Fill in your UUN and the password you were given for your account.
 
-.. include:: site_specific/log_in_to_server.rst
+Under "Server" give the value:
+
+``{{ teaching_server_fqdn }}``
+
+Fill in your UUN (University username, e.g. something like s1234567 for
+a student) as your username and the password you were given for your account.
 
 Click on Connect.
 
@@ -132,7 +282,7 @@ and ``server_data``.
 
 Finally, you can make things more convenient for next time by selecting:
 
-Bookmarks → New bookmark
+Bookmark → New bookmark
 
 in the CyberDuck menu. This will save these connection settings so you don't have to type
 them in again.
@@ -149,7 +299,7 @@ Call your new folder ``hello``. (You can use another name if you like, but it's 
 to use a name without any spaces -- if you want to use multiple words, separate them with
 the underscore character, ``_``). Click Create.
 
-Now drag your experiment file, ``experiment.html``, and the jspsych folder, over into your
+Now drag your experiment file, ``experiment.html``, over into your
 new folder.
 
 .. image:: images/copy_files.png
@@ -172,7 +322,7 @@ and then collect a response. In the tutorial you saw the example:
 .. code-block:: javascript
 
     var hello_trial = {
-        type: 'html-keyboard-response',
+        type: jsPsychHtmlKeyboardResponse,
         stimulus: 'Hello world!'
     }
 
@@ -190,8 +340,9 @@ and many others.
 
 Go back to `the jsPsych website <http://www.jspsych.org/6.3/>`_ and click on "Plugins".
 
-The node above has the type ``html-keyboard-response``. The corresponding plugin
-is ``jspsych-html-keyboard-response``. Find this in the response and click on it.
+The node above has the type ``jsPsychHtmlKeyboardResponse``. The corresponding plugin
+is ``html-keyboard-response``. Find this in the menu under "Plugins" on the jsPsych website,
+and click on it.
 
 Each kind of node can be set up using different parameters. The name of each parameter is
 the thing before the colon : in the code above. For example:
@@ -205,20 +356,18 @@ Every parameter has a default value. If a value isn't given, jsPsych will use
 this default value. In the case of html-keyboard-response, for example, the default
 for ``trial_duration`` is ``null``. In the documentation it says:
 
-  If this is null, then the stimulus will remain visible until the trial ends.
+  If the value of this parameter is null, then the trial will wait for a response indefinitely.
 
-In other words, the default is to wait until the trial ends. This leads to
-another question -- when does the trial end? Take a look at the ``response_ends_trial``
-parameter.
+In other words, the default is to wait until the participant responds.
 
 Exercise
 --------
 
 To illustrate the difference between different kinds of nodes, let's change
 our "Hello world" example to display an image. Take a look at the documentation
-for ``jspsych-image-keyboard-response`` plugin. You can pick your own image to
+for ``image-keyboard-response`` plugin. You can pick your own image to
 display, or if you need one,
-`use this <https://softdev.ppls.ed.ac.uk/static/images/nasa_proxima.png>`_.
+`use this <https://softdev.ppls.ed.ac.uk/online_experiments/nasa_proxima.png>`_.
 
 Now try to change your jsPsych program to show the image.
 
@@ -226,9 +375,10 @@ You'll have to:
 
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
-3. Add the ``jspsych-image-keyboard-response`` plugin at the top of your HTML
-   file (see step 6 of the tutorial).
-4. Give jsPsych the name of the image -- check the documentation to see how.
+3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
+   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.3/plugins/image-keyboard-response/#install>`_
+   for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
+4. Give jsPsych the name of the image -- check the plugin documentation to see how.
 5. Upload your code again once you've made these changes.
 
 A couple of things about files on the server:
@@ -259,4 +409,6 @@ doi:10.3758/s13428-014-0458-y
 
 .. rubric:: Footnotes
 
-.. [#dirs] On some computers, these are also called "directories".
+.. [#dirs] These are also called "directories".
+
+.. [#license] See `this page <https://github.com/jspsych/jsPsych/blob/main/license.txt>`_

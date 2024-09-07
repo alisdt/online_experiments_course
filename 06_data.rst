@@ -9,12 +9,11 @@ Testing
 -------
 
 As we've seen before, if you're just testing your experiment you can show the
-results after the experiment with something like this:
+results after the experiment by changing your initJsPsych:
 
 .. code:: javascript
 
-    jsPsych.init({
-      timeline: timeline,
+    var jsPsych = initJsPsych({
       on_finish: function() {
         jsPsych.data.displayData();
       }
@@ -26,8 +25,7 @@ You can easily display it in CSV format, though:
 
 .. code:: javascript
 
-    jsPsych.init({
-      timeline: timeline,
+    var jsPsych = initJsPsych({
       on_finish: function() {
         jsPsych.data.displayData('csv');
       }
@@ -100,33 +98,27 @@ In the ``experiment.js`` file, add a new function:
         });
     }
 
-.. topic:: fetch
-
-    This uses a function called ``fetch``. Note that this doesn't
-    work on Internet Explorer. If you need the experiment
-    to be available on IE, you can either use a different method to send the data (see
-    `the jsPsych documentation <http://www.jspsych.org/6.3/overview/data/#storing-data-permanently-as-a-file>`_ )
-    or use the `fetch polyfill <https://github.com/github/fetch>`_ [#polyfills]_ .
-
-Now finally, we need to change the experiment to send the data. Change your call to ``jsPsych.init``
+Now finally, we need to change the experiment to send the data. Change your call to ``initJsPsych``
 to contain:
 
 .. code:: javascript
 
-        on_finish: function(){
+    var jsPsych = initJsPsych({
+        on_finish: function() {
             var experiment_data = jsPsych.data.get();
             saveData("test.csv", experiment_data.csv());
         }
-
-This should replace any previous ``on_finish`` that was in the call.
+    });
 
 This calls our new ``saveData`` function with a filename (``test.csv``) and a CSV copy of the data.
+It replaces the previous code which displayed the data. (If you want to display the data as well, you
+can add the line ``jsPsych.data.displayData('csv');`` back in).
 
 Note that the previous code called the ``displayData()`` function, which just shows the data on the screen.
 This new code calls ``jsPsych.data.get()`` to get a ``DataCollection`` object. Then we call the ``DataCollection``'s
 ``csv()`` method, to get that data as CSV. ``DataCollection`` objects are a new feature of jsPsych, which
 give you lots of control over your data. We'll take a look at some specific things later -- for now,
-`here's a link to the documentation <http://www.jspsych.org/6.3/core_library/jspsych-data/#datacollection>`_
+`here's a link to the documentation <https://www.jspsych.org/7.3/reference/jspsych-data/#datacollection>`_
 
 How it works
 ------------
@@ -178,7 +170,7 @@ Data that doesn't change
 You can add this using ``jspsych.data.addProperties()``. For example, let's add the date and time of the start of
 the experiment.
 
-Before your ``jsPsych.init``, add the code:
+At the top of your code, after ``var jsPsych = initJsPsych(....);``, add the code:
 
 .. code:: javascript
 
@@ -192,7 +184,7 @@ Data that does change
 
 You can add extra information that varies for each trial. If you haven't already, add a fixation node to your
 current copy of the ``factorial`` experiment. (You can see how this is done
-:ref:`here <factorial_with_fixation>` ). The fixation uses the ``jspsych-html-keyboard-response`` plugin so
+:ref:`here <factorial_with_fixation>` ). The fixation uses the ``html-keyboard-response`` plugin so
 remember to add this to your ``experiment.html`` file.
 
 Now run the experiment again. You'll see that the fixation node also generates a line in the output.
@@ -255,7 +247,7 @@ We can also add new fields which change every time. In the ``trial`` node, chang
 
     data: {
         type: "trial",
-        stimulus_duration: jsPsych.timelineVariable('stimulus_duration'),
+        trial_duration: jsPsych.timelineVariable('duration'),
         fixation_duration: jsPsych.timelineVariable('fixation_duration')
     }
 
@@ -269,23 +261,23 @@ For some experiments you may want to send each line individually. This requires 
 
 Make a copy of your experiment -- we'll adapt this one to send the data for each trial as it's completed.
 
-Delete ``on_finish`` and the associated code from ``jsPsych.init``.
+Delete ``on_finish`` and the associated code from ``initJsPsych``.
 
 In its place, add:
 
 .. code:: javascript
 
-    on_data_update: saveDataLine
+    on_trial_finish: saveDataLine
 
-This specifies a new function to be called every time the data are updated.
-Now before ``jsPsych.init``, add this new function:
+This specifies a new function to be called every time a trial finishes.
+At the top of your code, just after ``var jsPsych = initJsPsych(....);``, add this new function:
 
 .. code:: javascript
 
     function saveDataLine(data) {
         // choose the data we want to save
         var data_to_save = [
-            data.type, data.stimulus, data.stimulus_duration, data.fixation_duration, data.rt
+            data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
         ];
         // join these with commas and add a newline
         var line = data_to_save.join(',')+"\n";
@@ -302,7 +294,7 @@ We could also use ``if`` to only save particular trials. For example:
         if (data.type == 'trial') {
             // choose the data we want to save
             var data_to_save = [
-                data.type, data.stimulus, data.stimulus_duration, data.fixation_duration, data.rt
+                data.type, data.stimulus, data.trial_duration, data.fixation_duration, data.rt
             ];
             // join these with commas and add a newline
             var line = data_to_save.join(',')+"\n";
@@ -321,7 +313,7 @@ for example their Crowdflower ID or Amazon MTurk number, that will allow you to
 verify their participation and pay them.
 
 Add a node at the beginning of your code which allows the user to input an ID, using
-`the survey-text plugin <http://www.jspsych.org/6.3/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
+`the survey-text plugin <http://www.jspsych.org/7.3/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
 to your ``experiment.html`` file to load the plugin). Add this node to your experiment
 at the beginning. This works a little differently to the plugins we've seen before,
 so be sure to read the documentation before you start.
@@ -337,7 +329,7 @@ without a name -- see :ref:`this section <functions>`), and inside it use
 a new column to the data which includes the ID. The function you pass to
 ``on_finish`` receives the data from the trial as an
 argument -- take a look at the documentation
-`here <http://www.jspsych.org/6.3/overview/callbacks/#on_finish-trial>`_ .
+`here <http://www.jspsych.org/7.3/overview/callbacks/#on_finish-trial>`_ .
 
 **Hint:** to get the response out of the ``survey-text`` trial, use
 
@@ -367,14 +359,11 @@ result of a ``survey-text`` node and adds it as a new column.
 
 .. rubric:: Footnotes
 
-.. [#ourserver] This doesn't apply to our server, ``jspsychlearning.ppls.ed.ac.uk``, which is
+.. [#ourserver] This doesn't apply to our server, ``{{ teaching_server_fqdn }}``, which is
     behind the University firewall -- but most
     real online experiments will be made accessible to the world.
 
-.. [#missing] The ``stimulus_duration`` field is missing -- we'll see how to add this to the output later on.
-
-.. [#polyfills] In JavaScript programming, a *polyfill* is a piece of code which implements a particular function,
-    usually for browsers that don't have that function.
+.. [#missing] The ``trial_duration`` field is missing -- we'll see how to add this to the output later on.
 
 .. [#http] .... and a few other methods for things like changing and deleting pages, but these are seldom used.
 

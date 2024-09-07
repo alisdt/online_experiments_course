@@ -1,8 +1,8 @@
+var jsPsych = initJsPsych();
+
 var trial = {
-    type: 'image-keyboard-response',
+    type: jsPsychImageKeyboardResponse,
     stimulus: 'nasa_proxima.png'
 };
 
-jsPsych.init({
-    timeline: [trial]
-});
+jsPsych.run([trial]);

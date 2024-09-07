@@ -1,10 +1,16 @@
+var jsPsych = initJsPsych({
+    on_finish: function() {
+        jsPsych.data.displayData();
+    }
+});
+
 var sentence = ["I", "wandered", "lonely", "as", "a", "cloud"];
 
 var trials = [];
 
 for (var word of sentence) {
   var trial = {
-      type: 'html-keyboard-response',
+      type: jsPsychHtmlKeyboardResponse,
       prompt: '<p>Press a key!</p>',
       stimulus: word
   };
@@ -13,9 +19,4 @@ for (var word of sentence) {
 
 // add a list of all images, these will be loaded right at the start
 // to avoid delays
-jsPsych.init({
-    timeline: trials,
-    on_finish: function() {
-        jsPsych.data.displayData();
-    }
-});
+jsPsych.run(trials);
