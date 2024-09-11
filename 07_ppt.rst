@@ -2,16 +2,9 @@ Allocating participant and condition numbers
 ============================================
 
 How can participant IDs be allocated to participants in an online experiment?
-Sequential participant IDs are the best to deal with,
-as these will allow us to counterbalance between a number of conditions.
 
-All of the code we've written for the experiment so far will only run on the
-participant's computer. The participant's computer *can't* allocate a sequential
-ID, as it doesn't know anything about the other participants. For that, we need
-the server, as it can keep track of IDs that have already been allocated.
-
-Back to GET
------------
+Back to GET - externally allocated IDs
+--------------------------------------
 
 Remember that last week we talked about the HTTP GET method, which allows us to
 pass parameters along to web pages. The example given was:
@@ -30,7 +23,7 @@ What if it looked like this:
 We can use this method to pass a participant number to jsPsych, and it has a very
 convenient way of receiving it.
 
-Make another copy of the latest version of your experiment and call it ``allocator``.
+Make another copy of the latest version of your experiment and call it ``id_in_url``.
 
 Now right at the top of ``experiment.js``, add this code:
 
@@ -52,11 +45,10 @@ Where should participant numbers come from?
 
 There are two possibilities here. One is that the participant will be sent from some
 external service (e.g. Amazon MTurk or Crowdflower, or a Qualtrics survey) and there
-will already be an ID in the URL.
+will already be an ID in the URL. In this case, you need to record the ID as above.
 
-We can also create our own small program on the server which forwards participants
-to the experiment, with an ID. Open a new file called ``participant_id_allocator.php``
-and copy this code into it:
+We can also create our own small program on the server which allocates participant IDs.
+Open a new file called ``participant_id_allocator.php`` and copy this code into it:
 
 .. include:: site_specific/allocator.rst
 
@@ -67,8 +59,7 @@ This code will:
 * If the file does exist, open it and interpret the contents as a whole number
 * Add one to ``$id``
 * Write ``$id`` to ``participant_id.txt``
-* Redirect to a given location (in this case ``experiment.html``) with the participant ID
-  added as a GET parameter.
+* Send ``$id`` back -- so this will be sent back to our experiment code where we can record the ID.
 
 The file ``participant_id.txt`` should always contain the last ID that was used. Every
 time this is accessed (and the program runs), it will increase the ID by 1, and forward
@@ -76,15 +67,52 @@ to the experiment with the new ID.
 
 You should be able to go to
 
-.. include:: site_specific/allocator_link.rst
+.. include:: example_code/allocator_link.rst
 
-and be redirected to your experiment with a participant ID of 1 allocated. If you go
-back there again, the ID will be 2.
-
-Because of the change we made to ``experiment.js``, these participant IDs will be present in the data file.
+This will send back a participant ID and you'll see it on the page. Every time you load or reload the page, the ID should increase by 1.
 
 Finally, since ``participant_id.txt`` always contains the next participant number,
 you can edit it to change the next participant ID, or delete it to start again at 1.
+
+Adding this to an experiment
+----------------------------
+
+Make another copy of your experiment (without the ``id_in_url`` changes). We'll modify this to use the PHP ID allocator.
+
+Add the ``call-function`` plugin to your HTML file (see `https://www.jspsych.org/v8/plugins/call-function/ <https://www.jspsych.org/v8/plugins/call-function/>`_).
+
+At the top of the experiment add:
+
+.. code:: javascript
+
+    var participant_id;
+
+Then add a new node to your experiment which will call ``participant_id_allocator.php`` and get a new participant ID.
+
+.. code:: javascript
+
+    var get_participant_id = {
+        type: jsPsychCallFunction,
+        async: true,
+        func: function (done) {
+            fetch("participant_id_allocator.php")
+                .then(function (response) {return response.text();})
+                .then(function (response_text) {return parseInt(response_text);})
+                .then(function (result) {
+                    participant_id = result;
+                    // condition number is the remainder of participant_id divided by 3
+                    condition_number = participant_id % 3;
+                    // if remainder is 0 change to 3 (so the conditions will be 1,2,3)
+                    if (condition_number == 0) {
+                        condition_number = 3;
+                    }
+                    // record this in our results
+                    jsPsych.data.addProperties({condition: condition_number});
+                })
+                .then(done())
+
+        }
+    }
 
 Better data filenames
 ---------------------
@@ -97,9 +125,11 @@ Look for code like this:
 
 .. code:: javascript
 
-    on_finish: function(){
+    on_finish: function() {
         var experiment_data = jsPsych.data.get();
         save_data("test.csv", experiment_data.csv());
+        // show results as well - take this out when doing real testing!
+        jsPsych.data.displayData("csv");
     }
 
 and change it to this:
@@ -109,6 +139,8 @@ and change it to this:
     on_finish: function(){
         var experiment_data = jsPsych.data.get();
         save_data(participant_id+"_data.csv", experiment_data.csv());
+        // show results as well - take this out when doing real testing!
+        jsPsych.data.displayData("csv");
     }
 
 This adds the participant ID to the filename, so that they will be called ``1_data.csv``, ``2_data.csv``,
@@ -182,26 +214,35 @@ Participant ID Remainder (ID % 3)
 etc.           etc.
 ============== ==================
 
-Let's add this to the experiment. At the top of ``experiment.js``, after the
-participant ID code, add this:
+Let's add this to the experiment. At the top of ``experiment.js``, add this:
 
 .. code:: javascript
 
-    var condition_number = participant_id % 3;
-    if (condition_number == 0) {
-        condition_number = 3;
-    }
+    var condition_number;
 
-We'll also want to record this in our results, so after that add:
+Then in the ``call-function`` node where we get the participant number, replace this line:
 
 .. code:: javascript
 
-    jsPsych.data.addProperties({condition: condition_number});
+    .then(function (result) {participant_id = result;})
+
+with this:
+
+.. code:: javascript
+
+    .then(function (result) {
+        participant_id = result;
+        // condition number is the remainder of participant_id divided by 3
+        condition_number = participant_id % 3;
+        // if remainder is 0 change to 3 (so the conditions will be 1,2,3)
+        if (condition_number == 0) {
+            condition_number = 3;
+        }
+    })
 
 Run your experiment and check that the condition number appears in the output.
 
 Example
 -------
 
-See :ref:`this example <pptcondition>` of gathering a participant number
-from the URL, calculating a condition number, and changing the data filename.
+See :ref:`this example <allocator>` of getting a participant number from the server, calculating a condition number, and changing the data filename.

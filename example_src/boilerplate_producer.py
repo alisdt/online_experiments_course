@@ -3,9 +3,9 @@ import re
 
 DIR_I_EXPECT_TO_BE_IN = "example_src"
 
-JSPSYCH_VERSION = "7.3.3"
+JSPSYCH_VERSION = "8.0.2"
 
-PLUGIN_VERSION = "1.1.2"
+PLUGIN_VERSION = "2.0.0"
 
 SUBDIRS_TO_EXCLUDE = ("images", "s02", "s05", "save_data", "debugging")
 

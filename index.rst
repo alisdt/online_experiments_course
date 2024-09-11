@@ -31,7 +31,7 @@ Please start with the first section, "Introduction".
    Data saving line-by-line <example_code/linebyline>
    Use survey-text to add a property <example_code/surveytext>
    PHP code to save data on the server <example_code/record_result>
-   Participant and condition number <example_code/pptcondition>
+   Participant ID allocator and condition number <example_code/allocator>
    Multiple images using timeline variables <example_code/multiple_images>
    Multiple images using a loop <example_code/multiple_images_loop>
    Stroop using timeline variables <example_code/stroop_timeline_variables>
