@@ -48,6 +48,7 @@ external service (e.g. Amazon MTurk or Crowdflower, or a Qualtrics survey) and t
 will already be an ID in the URL. In this case, you need to record the ID as above.
 
 We can also create our own small program on the server which allocates participant IDs.
+Make another copy of your experiment (without the ``id_in_url`` changes). Rename this directory to ``allocator``. We'll modify this to use the PHP ID allocator.
 Open a new file called ``participant_id_allocator.php`` and copy this code into it:
 
 .. include:: site_specific/allocator.rst
@@ -65,9 +66,9 @@ The file ``participant_id.txt`` should always contain the last ID that was used.
 time this is accessed (and the program runs), it will increase the ID by 1, and forward
 to the experiment with the new ID.
 
-You should be able to go to
+You should be able to go to the URL for this code on the server, something like:
 
-.. include:: example_code/allocator_link.rst
+.. include:: site_specific/allocator_link.rst
 
 This will send back a participant ID and you'll see it on the page. Every time you load or reload the page, the ID should increase by 1.
 
@@ -77,7 +78,6 @@ you can edit it to change the next participant ID, or delete it to start again a
 Adding this to an experiment
 ----------------------------
 
-Make another copy of your experiment (without the ``id_in_url`` changes). We'll modify this to use the PHP ID allocator.
 
 Add the ``call-function`` plugin to your HTML file (see `https://www.jspsych.org/v8/plugins/call-function/ <https://www.jspsych.org/v8/plugins/call-function/>`_).
 
