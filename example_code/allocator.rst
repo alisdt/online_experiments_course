@@ -1,3 +1,5 @@
+.. _allocator:
+
 Participant ID allocator code
 =============================
 
