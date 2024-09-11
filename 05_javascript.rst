@@ -294,7 +294,7 @@ Using a loop in jsPsych
 -----------------------
 
 Copy one of your existing experiments -- we'll use this as a template for a new one.
-Take a look in ``experiment.html`` and make sure it loads the ``jspsych-html-keyboard-response``
+Take a look in ``experiment.html`` and make sure it loads the ``html-keyboard-response``
 plugin.
 
 Here's a quick example of how you might use a loop in a jsPsych program. Copy the code below
@@ -322,7 +322,7 @@ into ``experiment.js``:
     jsPsych.run(trials);
 
 Note that the ``push()`` method inside the loop is used to add something on to the end of
-a list -- this is quite a common way of building up a timeline in jsPsych.
+a list -- this is a common way of building up a timeline in jsPsych.
 
 Exercise
 ........

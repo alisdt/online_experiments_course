@@ -338,7 +338,7 @@ These types allow you to do different things like:
 
 and many others.
 
-Go back to `the jsPsych website <http://www.jspsych.org/6.3/>`_ and click on "Plugins".
+Go back to `the jsPsych website <http://www.jspsych.org/>`_ and click on "Plugins".
 
 The node above has the type ``jsPsychHtmlKeyboardResponse``. The corresponding plugin
 is ``html-keyboard-response``. Find this in the menu under "Plugins" on the jsPsych website,
@@ -376,7 +376,7 @@ You'll have to:
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
 3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
-   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/7.3/plugins/image-keyboard-response/#install>`_
+   file (see `the bottom of the plugin documentation page <https://www.jspsych.org/latest/plugins/image-keyboard-response/#install>`_
    for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
 4. Give jsPsych the name of the image -- check the plugin documentation to see how.
 5. Upload your code again once you've made these changes.
@@ -397,13 +397,9 @@ Here's :ref:`a solution to the exercise <exercise02>`.
 Credit
 ------
 
-If you use jsPsych, please credit its creator, Joshua R. de Leeuw.
-He requests that users of jsPsych do this by citing the following paper:
+If you use jsPsych, please credit its creator, Joshua R. de Leeuw, and the jsPsych team. You can do this by citing the following paper:
 
-`de Leeuw, J. R. (2015). jsPsych: A JavaScript library for creating behavioral
-experiments in a web browser. Behavior Research Methods, 47(1), 1-12.
-doi:10.3758/s13428-014-0458-y
-<https://link.springer.com/article/10.3758/s13428-014-0458-y>`_
+de Leeuw, J.R., Gilbert, R.A., & Luchterhandt, B. (2023). jsPsych: Enabling an open-source collaborative ecosystem of behavioral experiments. Journal of Open Source Software, 8(85), 5351, `https://joss.theoj.org/papers/10.21105/joss.05351 <https://joss.theoj.org/papers/10.21105/joss.05351>`_.
 
 .. include:: site_specific/example_image_credit.rst
 

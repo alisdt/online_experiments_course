@@ -51,7 +51,7 @@ We can also create our own small program on the server which allocates participa
 Make another copy of your experiment (without the ``id_in_url`` changes). Rename this directory to ``allocator``. We'll modify this to use the PHP ID allocator.
 Open a new file called ``participant_id_allocator.php`` and copy this code into it:
 
-.. include:: site_specific/allocator.rst
+.. include:: example_code/participant_id_allocator.rst
 
 This code will:
 

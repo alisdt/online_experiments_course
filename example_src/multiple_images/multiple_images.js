@@ -6,7 +6,7 @@
     var dogs = ['Dog1.jpg', 'Dog2.jpg', 'Dog3.jpg'];
     var all_images = cats.concat(dogs);
 
-    var initJsPsych({
+    var jsPsych = initJsPsych({
         on_finish: function() {
             jsPsych.data.displayData('csv');
         },

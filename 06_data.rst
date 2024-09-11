@@ -118,7 +118,7 @@ Note that the previous code called the ``displayData()`` function, which just sh
 This new code calls ``jsPsych.data.get()`` to get a ``DataCollection`` object. Then we call the ``DataCollection``'s
 ``csv()`` method, to get that data as CSV. ``DataCollection`` objects are a new feature of jsPsych, which
 give you lots of control over your data. We'll take a look at some specific things later -- for now,
-`here's a link to the documentation <https://www.jspsych.org/7.3/reference/jspsych-data/#datacollection>`_
+`here's a link to the documentation <https://www.jspsych.org/latest/reference/jspsych-data/#datacollection>`_
 
 How it works
 ------------
@@ -303,7 +303,7 @@ for example their Crowdflower ID or Amazon MTurk number, that will allow you to
 verify their participation and pay them.
 
 Add a node at the beginning of your code which allows the user to input an ID, using
-`the survey-text plugin <http://www.jspsych.org/7.3/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
+`the survey-text plugin <http://www.jspsych.org/latest/plugins/jspsych-survey-text/>`_ . (Remember you'll also have to add a ``<script>`` tag
 to your ``experiment.html`` file to load the plugin). Add this node to your experiment
 at the beginning. This works a little differently to the plugins we've seen before,
 so be sure to read the documentation before you start.
@@ -319,7 +319,7 @@ without a name -- see :ref:`this section <functions>`), and inside it use
 a new column to the data which includes the ID. The function you pass to
 ``on_finish`` receives the data from the trial as an
 argument -- take a look at the documentation
-`here <http://www.jspsych.org/7.3/overview/callbacks/#on_finish-trial>`_ .
+`here <http://www.jspsych.org/latest/overview/callbacks/#on_finish-trial>`_ .
 
 **Hint:** to get the response out of the ``survey-text`` trial, use
 

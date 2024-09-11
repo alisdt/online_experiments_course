@@ -233,7 +233,7 @@ for the first experiment and replace ``hello`` with ``factorial``.
 Let's create a factorial design over a set of images and a set of trial durations. (In a real experiment we'd use this to give the participant a limited amount of time to respond).
 
 Look at the
-`documentation for the image-keyboard-response plugin <https://www.jspsych.org/7.3/plugins/image-keyboard-response/>`_.
+`documentation for the image-keyboard-response plugin <https://www.jspsych.org/latest/plugins/image-keyboard-response/>`_.
 There is a ``trial_duration`` parameter which controls the duration of the trial.
 
 Start off by editing the copy of ``experiment.js`` in your new folder.
@@ -316,7 +316,7 @@ This should go in the main timeline (in jsPsych.run).
 
 You can use the ``html-keyboard-response`` plugin, which you saw in the "Hello World!"
 example right at the start, or you can use the ``instructions`` plugin
-(`documented here <https://www.jspsych.org/7.3/plugins/instructions/>`_). Remember that
+(`documented here <https://www.jspsych.org/latest/plugins/instructions/>`_). Remember that
 when you add a plugin to an experiment, there must be a corresponding ``<script src="...."></script>``
 in ``experiment.html``.
 
