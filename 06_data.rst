@@ -82,14 +82,34 @@ As I said before, this code will receive the data. Now we need to write some cod
 that the experiment is running entirely in the participant's web browser. We'll write some code that sends all
 of the data from the experiment to the server. This will happen right at the end of the experiment.
 
-In the ``experiment.js`` file, add a new function:
+In the ``experiment.js`` file, add two new functions:
 
 .. code:: javascript
 
-    function save_data(name, data_in){
+    // helps save_data to try again if data saving fails
+    async function fetch_with_retry(...args) {
+        let count = 0;
+        while(count < 3) {
+            try {
+            let response = await fetch(...args);
+            if (response.status !== 200) {
+                throw new Error("Didn't get 200 Success");
+            }
+            return response;
+            } catch(error) {
+            console.log(error);
+            }
+            count++;
+            await new Promise(x => setTimeout(x, 250));
+        }
+        throw new Error("Too many retries");
+    }
+
+    // save some data (as text) to the filename given
+    async function save_data(name, data_in){
         var url = 'save_data.php';
         var data_to_send = {filename: name, filedata: data_in};
-        fetch(url, {
+        await fetch_with_retry(url, {
             method: 'POST',
             body: JSON.stringify(data_to_send),
             headers: new Headers({
@@ -98,15 +118,21 @@ In the ``experiment.js`` file, add a new function:
         });
     }
 
+.. topic:: Data loss (and what's going on here?) 
+
+    Sometimes in online experiments, data are lost due to bad internet connections. The version of ``save_data`` above, and its helper function, try to prevent this. If sending data fails, it will try again (up to a total of three times, 250ms apart).
+
+    How it does this is beyond the scope of this course, in particular I'm not going to explain ``await`` and ``async``.
+
 Now finally, we need to change the experiment to send the data. Change your call to ``initJsPsych``
 to contain:
 
 .. code:: javascript
 
     var jsPsych = initJsPsych({
-        on_finish: function() {
+        on_finish: async function() {
             var experiment_data = jsPsych.data.get();
-            save_data("test.csv", experiment_data.csv());
+            return save_data("test.csv", experiment_data.csv());
         }
     });
 

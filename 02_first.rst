@@ -45,7 +45,7 @@ server.
 First experiment
 ----------------
 
-Let's take a look at the `jsPsych website <http://www.jspsych.org/>`_.
+The following is adapted from the first tutorial on the `jsPsych website <http://www.jspsych.org/>`_ and is covered by the jsPsych license [#license]_.
 
 Step 1: Create an HTML file
 ...........................
@@ -375,7 +375,7 @@ You'll have to:
 
 1. Upload the image with CyberDuck -- make sure it's in the same place as your experiment
 2. Change the type of the node in the JavaScript code
-3. Add the ``plugin-image-keyboard-response`` plugin at the top of your HTML
+3. Add the ``image-keyboard-response`` plugin at the top of your HTML
    file (see `the bottom of the plugin documentation page <https://www.jspsych.org/latest/plugins/image-keyboard-response/#install>`_
    for the ``<script>`` tag to use, under "CDN-hosted JavaScript file")
 4. Give jsPsych the name of the image -- check the plugin documentation to see how.
@@ -405,6 +405,7 @@ de Leeuw, J.R., Gilbert, R.A., & Luchterhandt, B. (2023). jsPsych: Enabling an o
 
 .. rubric:: Footnotes
 
+.. [#license] See `this page <https://github.com/jspsych/jsPsych/blob/main/license.txt>`_
+
 .. [#dirs] These are also called "directories".
 
-.. [#license] See `this page <https://github.com/jspsych/jsPsych/blob/main/license.txt>`_

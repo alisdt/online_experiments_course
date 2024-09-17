@@ -3,7 +3,7 @@
 Multiple images
 ===============
 
-This code uses ``plugin-image-keyboard-response``, so make sure it's included in your
+This code uses ``image-keyboard-response``, so make sure it's included in your
 ``experiment.html``.
 
 .. code:: javascript
