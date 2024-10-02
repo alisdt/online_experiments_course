@@ -125,6 +125,14 @@ This is what jsPsych uses to run the experiment. All you need to do is write
 some code to describe what you what to happen in the experiment -- what
 stimuli should be shown, and what kind of responses should be collected.
 
+Help, that's a lot of stuff
+---------------------------
+
+Don't worry, we'll work through it gradually! As you go through the course, remember you can always refer to:
+
+* `the jsPsych documentation <https://www.jspsych.org/>`_, for information about jsPsych specifically.
+* `Mozilla Developer network <https://developer.mozilla.org>`_, for information about HTML, CSS and JavaScript. You can either use the search box on their site, or use "mdn" in your favourite search engine along with what you want to look for. E.g. search "mdn em" to see what the \<em\> element does in HTML.
+
 Thanks!
 -------
 

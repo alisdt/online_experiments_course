@@ -5,3 +5,7 @@
   padding: 1rem;
   color: #3E4349; /* per alabaster */
 }
+
+div.body p, div.body dd, div.body li {
+  line-height: 1.8 !important;
+}

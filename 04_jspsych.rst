@@ -7,6 +7,10 @@ participant. So far in our test experiment, we've only
 got one node which says hello (or shows an image, if you
 changed it to do that). Let's add some more!
 
+.. topic:: Don't forget about the documentation
+
+    Remember you can refer to `the jsPsych documentation <https://www.jspsych.org/>`_ and `Mozilla Developer network <https://developer.mozilla.org>`_, for information about HTML, CSS and JavaScript.
+
 Putting the code in its own file
 --------------------------------
 
