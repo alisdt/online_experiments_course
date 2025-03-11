@@ -33,6 +33,14 @@ This tells your browser to load everything straight from the server.
 
 * Check your file and folder (directory) names.
 
+* Make sure your plugin versions are right! The plugin version is the number in e.g.:
+
+.. code:: html
+    
+    <script src="https://unpkg.com/@jspsych/audio-button-response@2.0.1"></script>"""
+
+You can check these at the top of the documentation page for each plugin.
+
 Specific problems
 -----------------
 
